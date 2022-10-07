@@ -1,0 +1,20 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div"></div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">My projects</h1>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="my-projects-page-container">
+    <div class="classes-div">
+        <ul id="project-list">
+            {% for project in projects %}
+                <h1><li><a href="{% url 'classroom-project-details' project.pk %}">{{ project.title}}</a></li></h1>
+            {% endfor %}    
+        </ul>
+    </div>
+</div>
+<!--<a href= url "users-create-project-step-1" %}'>Create new project</a>-->
+{% endblock content %}

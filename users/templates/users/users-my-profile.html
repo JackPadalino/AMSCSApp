@@ -1,0 +1,47 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="card" id="profile-card">
+    <div class="card-body" id="profile-card-body">
+        <div id="profile-card-header-div">
+            <div id="profile-card-student-info-div">
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <h3>{{ user.username }}</h3>
+                <h5>{{ user.profile.grade }}th grade</h5>
+                <small><p>{{ user_solutions }} solutions</p></small>
+                {% if user_solutions < 5 %}
+                    <h1>🎖</h1>
+                {% elif user_solutions >= 5 %}
+                    <h1>🎖🎖</h1>
+                {% elif user_solutions >= 10 %}
+                    <h1>🎖🎖🎖</h1>
+                {% elif user_solutions >= 15 %}
+                    <h1>🎖🎖🎖🎖</h1>
+                {% elif user_solutions >= 20 %}
+                    <h1>🎖🎖🎖🎖🎖</h1>
+                {% endif %}
+            </div>
+            <div id="profile-card-profile-picture-div">
+                <img class="rounded-circle account-img" style="width:300px;height:300px" src="{{ user.profile.image.url }}">
+            </div>
+        </div>
+        <div id="profile-card-form-div">
+            <form method="POST" enctype='multipart/form-data'>
+                <fieldset class='form-group'>
+                    <div id="profile-card-personal-info-heading-div">
+                        <h3 id="profile-card-personal-info-heading">Personal information</h3>
+                    </div>
+                    {% csrf_token %}
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <br>
+                <div class='form-group'>
+                    <button class='btn btn-outline-success' type='submit'>Update</button>
+                </div>
+            </form>
+            <button id='secretButton' class='btn btn-outline-info'>?</button>
+        </div>
+    </div>
+</div>
+{% endblock content %}

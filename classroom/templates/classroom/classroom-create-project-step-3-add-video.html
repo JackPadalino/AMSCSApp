@@ -1,0 +1,21 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>{{ temp_project.title }}</h1>
+<div class="card create-project-card" id="create-project-step-3-card">
+    <div class="card-body create-project-card-body" id="create-project-step-3-card-body">
+        <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Create project | <b>Step 3: Add project video</b></legend>
+                {{ form|crispy }}
+            </fieldset>
+            <br>
+            <div class='form-group'>
+                <a class="btn btn-outline-dark" href="{% url 'classroom-create-project-step-4' temp_project.pk %}">SKIP video and go to step 4</a>
+                <button class="btn btn-outline-success" type='submit'>SAVE video and go to step 4</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

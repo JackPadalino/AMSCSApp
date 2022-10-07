@@ -1,0 +1,43 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div"></div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">My notifications</h1>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="my-notifications-page-container">
+    <div id="notifications-div">
+        <div id="notifications-list">
+            {% for notification in project_comment_notifications %}
+                <div class="notification-div">
+                    <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ notification.comment.author.profile.image.url }}">
+                    <h4><a href="{% url 'classroom-project-comment-notification-delete' notification.pk %}">{{ notification.comment.author.first_name }} {{ notification.comment.author.last_name }} commented on your {{ notification.comment.project.project_topic.title }} project</a></h4>
+                </div>
+            {% endfor %}
+            {% for notification in answer_notifications %}
+                <div class="notification-div">
+                    <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ notification.answer.author.profile.image.url }}">
+                    <h4><a href="{% url 'forum-delete-answer-notification' notification.pk %}">{{ notification.answer.author.first_name }} {{ notification.answer.author.last_name }} answered your question '{{ notification.answer.question.title }}'</a></h4>
+                </div>
+                {% endfor %}
+            {% for notification in helpful_notifications %}
+                {% if user.is_superuser %}
+                    <div class="notification-div">
+                        <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ notification.answer.question.author.profile.image.url }}">
+                        <h4><a href="{% url 'forum-question-details' notification.answer.question.pk %}">{{ notification.answer.question.author.first_name }} {{ notification.answer.question.author.last_name }} marked {{ notification.answer.author.first_name }} {{ notification.answer.author.last_name }}'s solution as helpful.</a></h4>
+                        <a href="{% url 'forum-approve-deny-helpful-request' notification.pk 'approve' %}" style="color:blue">Approve</a>
+                        <a href="{% url 'forum-approve-deny-helpful-request' notification.pk 'deny' %}" style="color:red">Deny</a>
+                    </div>
+                {% else %}
+                    <div class="notification-div">
+                        <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ user.profile.image.url }}">
+                        <h4><a href="{% url 'forum-delete-helpful-notification' notification.pk %}">You earned a solutions point for asking/answering the question '{{ notification.answer.question.title }}'!</a></h4>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

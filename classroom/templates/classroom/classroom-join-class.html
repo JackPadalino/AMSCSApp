@@ -1,0 +1,16 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div id="join-class-container">
+    <form id='join-class-form' method='POST'>
+        <fieldset class='form-group'>
+            {% csrf_token %}
+            {{ form|crispy }}
+        </fieldset>
+        <br>
+        <div class='form-group'>
+            <button class='btn btn-outline-success' type='submit'>Join</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

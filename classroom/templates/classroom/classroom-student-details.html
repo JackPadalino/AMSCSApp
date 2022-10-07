@@ -1,0 +1,52 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'classroom-classroom-profiles' classroom.pk classroom.title %}">Back to Meet the team</a></small>
+    </div>
+    <div id='return-title-container-center-div'></div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div class="card" id="student-details-card">
+    <div class="card-body" id="student-details-card-body">
+        <div id="student-details-card-profile-header-div">
+            <div id="student-details-card-student-info-div">
+                <h1>{{ profile.user.first_name }} {{ profile.user.last_name }}</h1>
+                <h3>{{ profile.user.username }}</h3>
+                <h5>{{ profile.grade }}th grade</h5>
+                <small><p>{{ user_solutions }} solutions</p></small>
+                {% if user_solutions < 5 %}
+                    <h1>🎖</h1>
+                {% elif user_solutions >= 5 %}
+                    <h1>🎖🎖</h1>
+                {% elif user_solutions >= 10 %}
+                    <h1>🎖🎖🎖</h1>
+                {% elif user_solutions >= 15 %}
+                    <h1>🎖🎖🎖🎖</h1>
+                {% elif user_solutions >= 20 %}
+                    <h1>🎖🎖🎖🎖🎖</h1>
+                {% endif %}
+            </div>
+            <div id="student-details-card-profile-picture-div">
+                <img class="rounded-circle account-img" style="width:300px;height:300px" src="{{ profile.image.url }}">
+            </div>
+        </div>
+        <div class="student-details-card-projects-div">
+            <div id="student-details-card-heading-div">
+                <h3 id="student-details-card-heading">My classes</h3>
+            </div>
+            {% for classroom in classrooms %}
+                <h3><a href="{% url 'classroom-classroom-details' classroom.title classroom.pk %}">{{ classroom.title }}</a></h3>
+            {% endfor %}
+            <br>
+            <div id="profile-card-heading-div">
+                <h3 id="student-details-card-heading">My projects</h3>
+            </div>
+            {% for project in projects %}
+                <h3><a href="{% url 'classroom-project-details' project.pk %}">{{ project.title }}</a></h3>
+                <p>{{ project.blurb }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

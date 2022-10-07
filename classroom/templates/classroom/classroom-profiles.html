@@ -1,0 +1,28 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'classroom-classroom-details' classroom.title classroom.pk %}">Back to {{ classroom.title }}</a></small>
+    </div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">Meet the team</h1>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="meet-the-team-page-container">
+    <div id="meet-the-team-student-profiles-div">
+        {% for profile in profiles %}
+            <div id="meet-the-team-profile-card">
+                <div id="meet-the-team-profile-card-body">
+                    <div class="card-body-title meet-the-team-profile-card-body-title">
+                        <h3><a href="{% url 'classroom-student-details' profile.pk classroom.pk %}">{{ profile.user.first_name }} {{ profile.user.last_name }}</a></h3>
+                    </div>
+                    <div class="card-body-image meet-the-team-profile-card-body-image">
+                        <img class="rounded-circle account-img" style="width:200px;height:200px" src="{{ profile.image.url }}">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div> 
+</div
+{% endblock content %}

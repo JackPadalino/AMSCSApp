@@ -1,0 +1,17 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <!--<legend class="border-bottom mb-4">Delete Question</legend>-->
+            <h4>Are you sure you want to delete this answer?</h4>
+        </fieldset>
+        <br>
+        <div class='form-group'>
+            <a class="btn btn-outline-dark btn-sm" href="{% url 'forum-question-details' question.pk %}">Cancel</a>
+            <a class="btn btn-outline-danger btn-sm" href="{% url 'forum-delete-answer' answer.pk %}">Yes, Delete</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

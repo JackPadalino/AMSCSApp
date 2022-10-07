@@ -1,0 +1,91 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% load embed_video_tags %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'classroom-projects-list' project.project_topic.pk %}">Back to {{ project.project_topic }} projects</a></small>
+        {% if user == project.user %}
+            <br>
+            <small><a href="{% url 'users-my-projects' %}">Back to My projects</a></small>
+        {% endif %}
+    </div>
+    <div id='return-title-container-center-div'></div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="project-details-page-container">
+    <div id="project-section">
+        <div class="card" id="project-details-card">
+            <div class="card-body" id="project-details-card-body">
+                <h1>{{ project.title }}</h1>
+                {% if user == project.user %}
+                    <a href="{% url 'classroom-update-project' project.pk %}">Edit text</a> |
+                    <a href="{% url 'classroom-add-link' project.pk %}">Edit link</a> | 
+                    <a href ="{% url 'classroom-add-video' project.pk %}">Add video</a> |
+                    <a href ="{% url 'classroom-add-project-photo' project.pk %}">Add photo</a> |
+                    <a href="{% url 'classroom-confirm-delete-project' project.pk %}">Delete project</a>
+                {% endif %}
+                {% if project.project_link %}
+                    <p><a href="{{ project.project_link }}">Link to my project</a></p>
+                {% endif %}
+                <br>
+                <legend class='border-bottom mb-4'>Project description</legend>
+                <p>{{ project.description }}</p>
+                <br>
+                <legend class='border-bottom mb-4'>Project media</legend>
+                <div id="project-media-container">
+                    {% for project_video in project.project_videos.all %}
+                        <div class="project-photo-video-container">
+                            {% video project_video.video '150x150' %}
+                            {% if user == project.user %}
+                                <small><a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a></small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    {% for project_photo in project.project_photos.all %}
+                        <div class="project-photo-video-container">
+                            <image class="project-photo" src="{{ project_photo.image.url }}"></image>
+                            {% if user == project.user %}
+                                <small><a href="{% url 'classroom-confirm-delete-project-photo' project.pk project_photo.pk %}">Delete photo</a></small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="comments-section">
+        {% if not comments %}
+            <h3>No comments yet...</h3>
+        {% else %}
+            <h3>Comments</h3>
+            {% for comment in comments %}
+                <b>{{ comment.author.first_name }} {{ comment.author.last_name }}</b>
+                <p class="comment-content">{{ comment.content }}</p>
+                {% if user == comment.author %}
+                    <small><a href="{% url 'classroom-update-comment' comment.pk %}">Edit</a></small>
+                {% endif %}
+                {% if user == comment.author or user == project.user %}
+                    <small><a href="{% url 'classroom-delete-comment' comment.pk %}">Delete</a></small>
+                {% endif %}
+                <br><br>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div id="comment-form-section">
+        {% if project.user != user %}
+        <h3>Add comment</h3>
+        <form id='comment-form' method="POST">
+            <fieldset class="form-group">
+                {% csrf_token %} 
+                {{ comment_form|crispy }}
+            </fieldset>
+            <br>
+            <div class='form-group'>
+                <button class="btn btn-outline-success comment-button" type='submit' name='commentbutton'>Add comment</button>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

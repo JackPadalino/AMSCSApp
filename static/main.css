@@ -1,0 +1,429 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~General CSS~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~all page content~~~~~*/
+#page-container{
+    margin-left:20px;
+    margin-right:20px;
+    display:flex;
+    flex-direction: column;
+    gap:50px;
+  }
+  
+  /*~~~~~all tags~~~~~*/
+  h1,h2,h3,h4,h5,p,a{
+    margin-bottom:5px;
+    font-family: Roboto Mono;
+  }
+  
+  /*~~~~~all page titles~~~~~*/
+  #return-title-container{
+    display:flex;
+    justify-content: row;
+  }
+  
+  #return-title-container-left-div{
+    flex:1;
+  }
+  
+  #return-title-container-center-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex:2;
+  }
+  
+  #page-title{
+    text-align: center;
+  }
+  
+  #page-title-link{
+    text-align: center;
+  }
+  
+  #return-title-container-right-div{
+    flex:1;
+  }
+  
+  /*~~~~~all anchor tags~~~~~*/
+  a{
+    text-decoration: none;
+  }
+  
+  /*~~~~~all messages~~~~~*/
+  #message-container{
+    display:flex;
+    justify-content: center;
+  }
+  
+  .alert{
+    display:flex;
+    justify-content: center;
+    flex-basis:800px;
+  }
+  
+  /*~~~~~all cards~~~~~*/
+  .card{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.500);
+  }
+  
+  #join-class-card{
+    width:500px;
+  }
+  
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~Main CSS~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  
+  /*~~~~~main page~~~~~*/
+  body{
+    background-color:#f5f5f5;
+  }
+  
+  #main-welcome{
+    font-size: 150px;
+    text-align: center;
+  }
+  
+  #main-nav{
+    background-color:hsl(170,80%,40%);
+    border-bottom: 1px solid lightgrey;
+    padding-left:10px;
+    padding-right:10px;
+    margin-bottom:20px;
+  }
+  
+  #mobile-page-container{
+    display:none;
+  }
+  
+  /*~~~~~login and register pages~~~~~*/
+  .login-register-container{
+    display:flex;
+    justify-content: center;
+  }
+  
+  .login-register-card{
+    width:500px;
+  }
+  
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~User CSS~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  
+  /*~~~~~my profile page~~~~~*/
+  #profile-card{
+    width:800px;
+  }
+  
+  #profile-card-header-div{
+    display:flex;
+    justify-content:left;
+  }
+  
+  #profile-card-personal-info-heading{
+    border-bottom:1px solid lightgrey;
+  }
+  
+  #profile-card-student-info-div{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+  }
+  
+  #profile-card-profile-picture-div{
+    display: flex;
+    justify-content: center;
+    flex:2;
+  }
+  
+  /*~~~~~my projects page~~~~~*/
+  #my-projects-page-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /*~~~~~my notifications page~~~~~*/
+  #my-notifications-page-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #notifications-list{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+  }
+  
+  .notification-div{
+    display: flex;
+    align-items: center;
+    gap:10px;
+  }
+  
+  /*~~~~~my classes page~~~~~*/
+  #my-classes-page-container{
+    display:flex;
+    flex-direction: column;
+  }
+  
+  #my-classes-container{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap:50px;
+  }
+  
+  #class-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .my-classes-card-title{
+    text-align: center;
+  }
+  
+  /*~~~~~join class page~~~~~*/
+  #join-class-container{
+    display: flex;
+    justify-content: center;
+  }
+  
+  #join-class-form{
+    width:400px;
+  }
+  
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~Classroom CSS~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  
+  /*~~~~~classroom details page~~~~~*/
+  #classroom-details-header-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: green;
+  }
+  
+  #classroom-details-title{
+    text-align: center;
+  }
+  
+  #classroom-details-join-class-link{
+    text-align: center;
+  }
+  
+  #classroom-details-page-container{
+    display:flex;
+    justify-content: center;
+  }
+  
+  #classroom-details-container{
+    display: flex;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  
+  .classroom-details-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:250px;
+    height:250px;
+  }
+  
+  .classroom-details-card>img{
+    padding:0px;
+    margin:0px;
+  }
+  
+  /*~~~~~project details page~~~~~*/
+  #project-details-page-container{
+    display:flex;
+    flex-direction: column;
+    gap:50px;
+  }
+  
+  #project-details-card{
+    width:800px;
+  }
+  
+  #project-media-container{
+    display: flex;
+    justify-content: left;
+    gap:10px;
+  }
+  
+  .project-photo-video-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-photo{
+    height:150px;
+    width:150px;
+  }
+  
+  #comment-form{
+    width:800px;
+  }
+  .comment-content{
+    margin:0px;
+  }
+  
+  /*~~~~~classroom student details pag~~~~~e*/
+  #student-details-card{
+    width:800px;
+  }
+  
+  #student-details-card-profile-header-div{
+    display:flex;
+    justify-content:left;
+  }
+  
+  #student-details-card-student-info-div{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+  }
+  
+  #student-details-card-profile-picture-div{
+    display: flex;
+    justify-content: center;
+    flex:2;
+  }
+  
+  #student-details-card-heading{
+    border-bottom:1px solid lightgrey;
+  }
+  
+  /*~~~~~meet the team page~~~~~*/
+  #meet-the-team-page-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #meet-the-team-student-profiles-div{
+    display: flex;
+    justify-content: center;
+    gap:50px;
+  }
+  
+  #meet-the-team-profile-card{
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+  }
+  
+  #meet-the-team-profile-card-body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .meet-the-team-profile-card-body-title{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .meet-the-team-profile-card-body-image{
+    display: flex;
+    justify-content: center;
+  }
+  
+  /*~~~~~update comment page*/
+  #update-comment-card{
+    width:800px;;
+  }
+  
+  /*~~~~~create project pages~~~~~*/
+  .create-project-card{
+    width:800px;
+  }
+  
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~Forum CSS~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  
+  /*~~~~~ask new question page~~~~~*/
+  #ask-question-card{
+    width:800px;
+  }
+  
+  /*~~~~~question details page~~~~~*/
+  #question-details-page-container{
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+  }
+  
+  #question-details-card{
+    width:800px;
+  }
+  
+  #answer-list-container{
+    display:flex;
+    flex-direction: column;
+    row-gap:20px;
+  }
+  
+  /*~~~~~edit question page~~~~~*/
+  #edit-question-card{
+    width:800px;
+  }
+  
+  /*~~~~~edit answer page*/
+  #edit-answer-card{
+    width:800px;
+  }
+  
+  /*~~~~~answer question page~~~~~*/
+  #answer-question-page-container{
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+  }
+  
+  #answer-question-card{
+    width:800px;
+  }
+  
+  /*~~~~~CSS for mobile view~~~~~*/
+  @media (max-width: 700px){
+    body{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding:20px;
+    }
+    #main-nav{
+      display:none;
+    }
+    #page-container{
+      display:none;
+    }
+    #mobile-page-container{
+      display:block;
+    }
+  }
+  
+  @media (max-width:1900px){
+    #main-welcome{
+      font-size:70px;
+    }
+  }

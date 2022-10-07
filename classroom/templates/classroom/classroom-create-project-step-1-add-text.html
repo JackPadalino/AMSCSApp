@@ -1,0 +1,19 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="card create-project-card" id="create-project-step-1-card">
+    <div class="card-body create-project-card-body" id="create-project-step-1-card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Create project | <b>Step 1: Add project text</b></legend>
+                {{ form|crispy }}
+            </fieldset>
+            <br>
+            <div class='form-group'>
+                <button class="btn btn-outline-success" type='submit'>SAVE text and go to step 2</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

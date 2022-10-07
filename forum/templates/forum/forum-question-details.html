@@ -1,0 +1,69 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% load embed_video_tags %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'forum-questions-list' question.forum_topic.pk %}">Back to {{ question.forum_topic.title }} forum</a></small>
+    </div>
+    <div id='return-title-container-center-div'></div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="question-details-page-container">
+    <div class="card" id="question-details-card">
+        <div class="card-body" id="question-details-card-body">
+            <h1>{{ question.title }}</h1>
+            <small><p>{{ question.author }}</p></small>
+            {% if user == question.author %}
+                <a href="{% url 'forum-edit-question' question.pk %}">Edit</a> <a href="{% url 'forum-confirm-delete-question' question.pk %}">Delete</a>
+            {% endif %}
+            <br>
+            <p>{{ question.content }}</p>
+            {% if question.project_link %}
+                <br>
+                <p><a href="{{ question.project_link }}">Link to my project</a></p>
+            {% endif %}
+            <br>
+            {% if user != question.author %}
+                <a class="btn btn-outline-primary btn-sm" href="{% url 'forum-answer-question' question.pk %}">Answer question</a>
+            {% endif %}
+        </div>
+    </div>
+    <!--Answers section-->
+    <div class="question-answers-section">
+        {% if not answers %}
+            <h3>No answers yet...</h3>
+        {% else %}
+            <h3>Answers</h3>
+            <div id="answer-list-container">
+            {% for answer in answers %}
+                <div id="answer-container">
+                    {% if user == answer.author %}
+                        {% if answer.solution or answer.requested %}
+                            <b>{{ answer.author.first_name }} {{ answer.author.last_name }} <span style="color:#0000EE;font-size:small;font-weight:normal;font-style:italic;">Marked as helpful 👍</span></b>
+                            <p>{{ answer.content }}</p>
+                            <span><small><a href="{% url 'forum-edit-answer' answer.pk %}">Edit</a> <a style="color:red;" href="{% url 'forum-confirm-delete-answer' answer.pk %}">Delete</a></small></span>
+                        {% else %}
+                            <b>{{ answer.author.first_name }} {{ answer.author.last_name }}</b>
+                            <p>{{ answer.content }}</p>
+                            <span><small><a href="{% url 'forum-edit-answer' answer.pk %}">Edit</a> <a style="color:red;" href="{% url 'forum-confirm-delete-answer' answer.pk %}">Delete</a></small></span>
+                        {% endif %}
+                    {% elif user == question.author %}
+                        <b>{{ answer.author.first_name }} {{ answer.author.last_name }}</b>
+                        <p>{{ answer.content }}</p> 
+                        {% if answer.solution or answer.requested %}
+                            <small><a style="color:#0000EE;font-size:small;font-weight:normal;font-style:italic;" href="{% url 'forum-request-helpful-notification' answer.pk %}">Marked as helpful 👍</a> <a style="color:red;" href="{% url 'forum-confirm-delete-answer' answer.pk %}">Delete</a></small>
+                        {% else %}
+                            <small><a style="color:blue;" href="{% url 'forum-request-helpful-notification' answer.pk %}">This is helpful!</a> <a style="color:red;" href="{% url 'forum-confirm-delete-answer' answer.pk %}">Delete</a></small>
+                        {% endif %}
+                    {% else %}
+                        <b>{{ answer.author.first_name }} {{ answer.author.last_name }}</b>
+                        <p>{{ answer.content }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

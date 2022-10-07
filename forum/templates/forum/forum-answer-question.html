@@ -1,0 +1,41 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% load embed_video_tags %}
+{% block content %}
+<div id="answer-question-page-container">
+    <div class="card" id="question-details-card">
+        <div class="card-body" id="question-details-card-body">
+            <h1>{{ question.title }}</h1>
+            <small><p>{{ question.author }}</p></small>
+            <br>
+            <fieldset class='form-group'>
+                <p>{{ question.content }}</p>
+            </fieldset>
+            {% if question.project_link %}
+                <p><a href="{{ question.project_link }}">Link to my project</a></p>
+            {% endif %}
+        </div>
+    </div>
+    {% if user != question.author %}
+    <div>
+        <h3>Add an answer</h3>
+        <div class="card" id="answer-question-card">
+            <div class="card-body" id="answer-question-card-body">
+                <div id='answer-form'>
+                    <form method="POST" class='answer-form'>
+                        <fieldset class="form-group">
+                            {% csrf_token %} 
+                            {{ form|crispy }}
+                        </fieldset>
+                        <br>
+                        <div class='form-group'>
+                            <button class="btn btn-outline-success comment-button" type='submit' name='commentbutton'>Add answer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

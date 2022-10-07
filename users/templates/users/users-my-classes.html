@@ -1,0 +1,27 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div"></div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">My classes</h1>
+        <a id="page-title-link" href ="{% url 'users-join-class' %}">Join a class</a>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="my-classes-page-container">
+    <div id="my-classes-container">
+        {% for class in classes %}
+            <div id="class-container">
+                <div id="class-container-title">
+                    <h3><a href="{% url 'classroom-classroom-details' class.title class.pk %}">{{ class.title}}</a></h3>
+                </div>
+                <div id="class-container-img">
+                    <img src = "{% static 'page-pics/my-classes/classroom-icon.png' %}" height="150" width="150"/>
+                </div>
+            </div>
+        {% endfor %}
+    </div> 
+</div
+{% endblock content %}

@@ -1,0 +1,76 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% load embed_video_tags %}
+{% block content %}
+<div class="card project-card">
+    <div class="card-body project-card-body">
+        <h1>{{ project.title }}</h1>
+        {% if user == project.user %}
+            <a href="{% url 'classroom-update-project' project.pk %}">Edit text</a>
+            <a href="{% url 'classroom-add-link' project.pk %}">Edit link</a>
+            <a href ="{% url 'classroom-add-video' project.pk %}">Add video</a>
+            <a href ="{% url 'classroom-add-project-photo' project.pk %}">Add photo</a>
+            <a href="{% url 'classroom-confirm-delete-project' project.pk %}">Delete project</a>
+        {% endif %}
+        <h3>{{ project.blurb }}</h3>
+        {% if project.project_link %}
+            <p><a href="{{ project.project_link }}">Link to my project</a></p>
+        {% endif %}
+        <fieldset class='form-group'>
+            <legend class='border-bottom mb-4'>Project description</legend>
+            <p>{{ project.description }}</p>
+            <legend class='border-bottom mb-4'>Project media</legend>
+            {% for project_video in project.project_videos.all %}
+                <div class='video-div'>
+                    {% video project_video.video '300x300' %}
+                    {% if user == project.user %}
+                        <a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% for project_photo in project.project_photos.all %}
+                <div class='project-photo-div'>
+                    <image style='height:300px;width:300px;' src="{{ project_photo.image.url }}"></image>
+                    {% if user == project.user %}
+                        
+                        <a href="{% url 'classroom-confirm-delete-project-photo' project.pk project_photo.pk %}">Delete photo</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </fieldset>
+    </div>
+</div>
+{% if user == project.user %}
+    <a href="{% url 'users-my-projects' %}">My projects</a>
+{% endif %}
+<a href="{% url 'classroom-projects-list' project.project_topic.pk %}">See all {{ project.project_topic }} projects</a>
+
+<!--Comments section-->
+{% if not comments %}
+    <h3 class="border-bottom mb-4">No comments yet...</h3>
+{% else %}
+    <h3 class="border-bottom mb-4">Comments</h3>
+    {% for comment in comments %}
+        <b>{{ comment.author.first_name }} {{ comment.author.last_name }}</b>
+        <p>{{ comment.content }}</p>
+        {% if project.user != user %}
+            <small><a href="{% url 'classroom-update-comment' comment.pk %}">Edit</a></small>
+            <small><a href="{% url 'classroom-delete-comment' comment.pk %}">Delete</a></small>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% if project.user != user %}
+<h3>Add comment</h3>
+<div class='register-login-profile-form'>
+    <form method="POST" class='comment-form'>
+        <fieldset class="form-group">
+            {% csrf_token %} 
+            {{ comment_form|crispy }}
+        </fieldset>
+        <div class='form-group'>
+            <button class="btn btn-outline-success comment-button" type='submit' name='commentbutton'>Add comment</button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock content %}

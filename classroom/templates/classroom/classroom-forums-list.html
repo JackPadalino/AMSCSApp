@@ -1,0 +1,19 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'classroom-classroom-details' classroom.title classroom.pk %}">Back to {{ classroom.title }}</a></small>
+    </div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">{{ classroom.title }} forums</h1>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div class="projects-list-div">
+    {% for forum in forums %}
+        <!--<h1><a href= url 'classroom-classroom-main' class.title class.pk %}">{{ class.title}}</a></h1>-->
+        <h1><a href="{% url 'forum-topics-list' forum.pk %}">{{ forum.title }}</a></h1>
+        <small><b>Topics:</b> {{ forum.forum_topics.count }} | <b>Questions asked:</b> {{ forum.questions.count }} | <b>Answers:</b> {{ forum.answers.count }}</small>
+    {% endfor %}    
+</div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'main/main-base.html' %}
+{% load static %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'classroom-classes' classroom.school_year.pk %}">Back to Classes {{ classroom.school_year }}</a></small>
+    </div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">{{ classroom.title }}</h1>
+        {% if user.profile not in classroom.profiles.all %}
+            <a id="page-title-link" href ="{% url 'classroom-join-class' classroom.pk %}">Join class</a>
+        {% endif %}
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="classroom-details-page-container">
+    <div id="classroom-details-container">
+        <div class="card classroom-details-card" id="classroom-details-meet-the-team-card">
+            <h3><a href="{% url 'classroom-classroom-profiles' classroom.pk classroom.title %}">Meet the team</a></h3>
+            <img src = "{% static 'page-pics/classroom-details/meet-the-team.png' %}" height="150" width="150"/>
+        </div>
+        <div class="card classroom-details-card" id="classroom-details-projects-card">
+            <h3><a href="{% url 'classroom-project-topics' classroom.pk %}">Projects</a></h3>
+            <img src = "{% static 'page-pics/classroom-details/projects.png' %}" height="150" width="150"/>
+        </div>
+        <div class="card classroom-details-card" id="classroom-details-forums-card">
+            <h3><a href="{% url 'classroom-forums-list' classroom.pk %}">Forums</a></h3>
+            <img src = "{% static 'page-pics/classroom-details/forums.png' %}" height="150" width="150"/>
+        </div>
+    </div> 
+</div>
+{% endblock content %}

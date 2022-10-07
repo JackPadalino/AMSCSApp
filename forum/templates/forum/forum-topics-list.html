@@ -1,0 +1,18 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'classroom-forums-list' classroom.pk %}">Back to {{ classroom.title}} forums</a></small>
+    </div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">{{ forum.title }} forum</h1>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div class="projects-list-div">
+    {% for forum_topic in forum_topics %}
+        <h1><a href="{% url 'forum-questions-list' forum_topic.pk %}">{{ forum_topic.title }}</a></h1>
+        <small><b>Questions asked:</b> {{ forum_topic.questions.count }} | <b>Answers:</b> {{ forum_topic.answers.count }}</small>
+    {% endfor %}    
+</div>
+{% endblock content %}

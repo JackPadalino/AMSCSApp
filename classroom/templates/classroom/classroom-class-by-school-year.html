@@ -1,0 +1,19 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href='{% url "main-home" %}'>Back to Home</a></small>
+    </div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">Classes by school year</h1>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="class-by-year-page-container">
+    <div class="classes-div">
+        {% for year in schoolyears %}
+            <h1><a href="{% url 'classroom-classes' year.pk %}">{{ year.year}}</a></h1>
+        {% endfor %}    
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'main/main-base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="login-register-container">
+    <div class="card login-register-card" id="login-card">
+        <div class="card-body login-register-card-body" id="profile-card-body">
+            <form method='POST'>
+                {% csrf_token %}
+                <fieldset class='form-group'>
+                    <legend class='border-bottom mb-4'>Log in</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <br>
+                <div class='form-group'>
+                    <button class='btn btn-outline-success' type='submit'>Log in</button>
+                </div>
+            </form>
+            <br>
+            <div>
+                <!--<small class='text-muted'>Need an account? <a class='ml-2' href= url 'users-register' %}">Sign up now</a></small>-->
+                <!--<small class='text-muted'>Forgot password? <a href= url 'password_reset' >Send reset instructions</a></small>-->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

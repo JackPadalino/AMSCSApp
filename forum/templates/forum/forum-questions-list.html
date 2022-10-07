@@ -1,0 +1,20 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="{% url 'forum-topics-list' forum_topic.forum.pk %}">Back to {{ forum_topic.forum.title }} forum</a></small>
+    </div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">Forum topic: {{ forum_topic.title }}</h1>
+        <a id='page-title-link' href="{% url 'forum-ask-new-question' forum_topic.pk %}">Ask a question</a>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div class="projects-list-div">
+    {% for question in questions %}
+        <h1><a href="{% url 'forum-question-details' question.pk %}">{{ question.title }}</a></h1>
+        <p>{{ question.author.first_name }} {{ question.author.last_name }}</p>
+        <small><b>{{ question.answers.count }}</b> answers</small>
+    {% endfor %}    
+</div>
+{% endblock content %}

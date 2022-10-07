@@ -1,0 +1,39 @@
+{% extends 'main/main-base.html' %}
+{% load static %}
+{% block content %}
+<small><a href="{% url 'classroom-classes' classroom.school_year.pk %}">Back to Classes {{ classroom.school_year }}</a></small>
+<div id="classroom-details-page-container">
+    <div class='page-title'>
+        <h1>{{ classroom.title }}</h1>
+        {% if user.profile not in classroom.profiles.all %}
+            <a href ="{% url 'classroom-join-class' classroom.pk %}">Join class</a>
+        {% endif %}
+    </div>
+    <div id="classroom-details-container">
+        <div class="card classroom-details-card" id="classroom-details-meet-the-team-card">
+            <div class="card-body-title classroom-details-card-body-title">
+                <h3><a href="{% url 'classroom-classroom-profiles' classroom.pk classroom.title %}">Meet the team</a></h3>
+            </div>
+            <div class="card-body-image classroom-details-card-body-image">
+                <img src = "{% static 'page-pics/class-details/meet-the-team.png' %}" height="150" width="150"/>
+            </div>
+        </div>
+        <div class="card classroom-details-card" id="classroom-details-projects-card">
+            <div class="card-body-title classroom-details-card-body-title">
+                <h3><a href="{% url 'classroom-project-topics' classroom.pk %}">Projects</a></h3>
+            </div>
+            <div class="card-body-image classroom-details-card-body-image">
+                <img src = "{% static 'page-pics/class-details/projects.png' %}" height="150" width="150"/>
+            </div>
+        </div>
+        <div class="card classroom-details-card" id="classroom-details-forums-card">
+            <div class="card-body-title classroom-details-card-body-title">
+                <h3><a href="{% url 'classroom-forums-list' classroom.pk %}">Forums</a></h3>
+            </div>
+            <div class="card-body-image classroom-details-card-body-image">
+                <img src = "{% static 'page-pics/class-details/forums.png' %}" height="150" width="150"/>
+            </div>
+        </div>
+    </div> 
+</div>
+{% endblock content %}
