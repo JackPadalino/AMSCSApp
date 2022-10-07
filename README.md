@@ -4,7 +4,6 @@
 - Forums allow students to ask questions and mark each other's solutions as 'helpful'
 
 #### Next steps:
-- Was able to run all migrations to heroku db! Need to change all instances of model names for Classroom and Forum
-- Created new model names Classroom and Forum
+- Push all templates to heroku and update heroku env variables
 - Removed student access if not currently enrolled in class - Do not remove projects!
 - Publish site!
