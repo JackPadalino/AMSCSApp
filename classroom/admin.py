@@ -1,4 +1,4 @@
-""" from django.contrib import admin
+from django.contrib import admin
 from .models import (
     SchoolYear,
     Classroom,
@@ -17,4 +17,4 @@ admin.site.register(Project)
 admin.site.register(ProjectPhoto)
 admin.site.register(ProjectVideo)
 admin.site.register(ProjectComment)
-admin.site.register(ProjectCommentNotification) """
+admin.site.register(ProjectCommentNotification)

@@ -1,4 +1,4 @@
-""" from django.http import HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -442,4 +442,4 @@ def ClassForumsListView(request,pk):
         'classroom':classroom,
         'forums':forums,
     }
-    return render(request,'classroom/classroom-forums-list.html',context) """
+    return render(request,'classroom/classroom-forums-list.html',context)

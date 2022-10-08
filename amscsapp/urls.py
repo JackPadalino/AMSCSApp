@@ -19,9 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    #path('',include('main.urls')),
-    #path('users/',include('users.urls')),
-    #path('classroom/',include('classroom.urls')),
-    #path('forum/',include('forum.urls')),
+    path('',include('main.urls')),
+    path('users/',include('users.urls')),
+    path('classroom/',include('classroom.urls')),
+    path('forum/',include('forum.urls')),
     path('admin/', admin.site.urls),
-] #+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,4 +1,4 @@
-""" from django.test import TestCase
+from django.test import TestCase
 from django.contrib.auth.models import User
 from classroom.models import SchoolYear,Classroom,Project,ProjectTopic
 
@@ -63,4 +63,4 @@ class CreateNewProjectTest(TestCase):
         # creating a list of all projects created by user1
         projects = user1.projects.all()
         # verifying the length of the list 'projects'
-        self.assertEqual(len(projects),2) """
+        self.assertEqual(len(projects),2)

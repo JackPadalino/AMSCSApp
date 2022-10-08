@@ -1,4 +1,4 @@
-""" from django.urls import path
+from django.urls import path
 #from . import views
 from .views import (
     # classroom views
@@ -70,4 +70,4 @@ urlpatterns = [
     
     # forum urls
     path('class-forums-list/<int:pk>/',ClassForumsListView,name='classroom-forums-list')
-] """
+]

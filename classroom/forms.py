@@ -1,4 +1,4 @@
-""" from django import forms
+from django import forms
 from django.apps import apps
 from .models import Project,ProjectVideo,ProjectPhoto,ProjectComment
 
@@ -49,4 +49,4 @@ class CommentForm(forms.ModelForm):
         fields = ['content']
         labels = {
             'content':'Want to leave a comment? Remember to keep it positive and helpful!'
-        } """
+        }

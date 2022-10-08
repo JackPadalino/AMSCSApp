@@ -1,4 +1,4 @@
-""" from django.urls import path
+from django.urls import path
 from .views import (
     # forum views
     ForumTopicsListView,
@@ -39,4 +39,4 @@ urlpatterns = [
     path('edit-answer/<int:answer_pk>/',EditAnswerView,name='forum-edit-answer'),
     path('confirm-delete-answer/<int:answer_pk>/',AnswerConfirmDeleteView,name='forum-confirm-delete-answer'),
     path('delete-answer/<int:answer_pk>/',AnswerDeleteView,name='forum-delete-answer'),
-    ] """
+    ]

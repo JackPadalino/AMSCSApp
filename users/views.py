@@ -1,4 +1,4 @@
-""" import re
+import re
 import os
 from itertools import chain
 from django.urls.base import reverse_lazy
@@ -142,4 +142,4 @@ def NotificationsListView(request):
         'answer_notifications':answer_notifications,
         'helpful_notifications':helpful_notifications
     }
-    return render(request,'users/users-notifications.html',context) """
+    return render(request,'users/users-notifications.html',context)

@@ -1,4 +1,4 @@
-""" from django.apps import AppConfig
+from django.apps import AppConfig
 
 
 class ForumConfig(AppConfig):
@@ -7,4 +7,3 @@ class ForumConfig(AppConfig):
 
     def ready(self):
         import forum.signals
- """

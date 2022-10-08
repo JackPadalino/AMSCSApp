@@ -1,4 +1,4 @@
-""" from django.test import TestCase
+from django.test import TestCase
 from django.contrib.auth.models import User
 from .models import Profile
 
@@ -14,4 +14,4 @@ class CreateNewUserProfileTest(TestCase):
         profile = Profile.objects.get(user=user)
         # verifying that newly created profile points to the correct user
         self.assertEqual(profile.user,user)
-        self.assertEqual(profile.solutions,0) """
+        self.assertEqual(profile.solutions,0)

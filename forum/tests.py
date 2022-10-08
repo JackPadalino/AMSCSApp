@@ -1,4 +1,4 @@
-""" 
+
 from django.test import TestCase
 from django.contrib.auth.models import User
 from classroom.models import SchoolYear,Classroom
@@ -208,4 +208,3 @@ class CreateNewAnswerNotificationTest(TestCase):
         self.assertEqual(len(user1_notifications),2)
 
 
- """

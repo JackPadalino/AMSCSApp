@@ -1,4 +1,4 @@
-""" from django import forms
+from django import forms
 from django.apps import apps
 from .models import Forum,ForumTopic,Question,Answer
 
@@ -26,4 +26,4 @@ class AnswerForm(forms.ModelForm):
         fields = ['content']
         labels = {
             "content": "Content | Remember to keep it positive and helpful!",
-        } """
+        }

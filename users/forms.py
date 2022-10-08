@@ -1,4 +1,4 @@
-""" from django import forms
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
@@ -43,4 +43,4 @@ classroom_choices = tuple(classoom_choices)
 
 class JoinClassForm(forms.Form):
     classroom = forms.ChoiceField(label='Join a class',choices=classoom_choices,required=True)
-    join_code = forms.CharField(label='Join code',max_length=10,required=True) """
+    join_code = forms.CharField(label='Join code',max_length=10,required=True)

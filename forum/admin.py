@@ -1,4 +1,4 @@
-""" from django.contrib import admin
+from django.contrib import admin
 from .models import (
     Forum,
     ForumTopic,
@@ -13,4 +13,4 @@ admin.site.register(ForumTopic)
 admin.site.register(Question)
 admin.site.register(Answer)
 admin.site.register(AnswerNotification)
-admin.site.register(HelpfulNotification) """
+admin.site.register(HelpfulNotification)

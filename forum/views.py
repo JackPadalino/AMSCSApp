@@ -1,4 +1,4 @@
-""" from django.shortcuts import render,get_object_or_404,redirect
+from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib import messages
@@ -231,4 +231,4 @@ def HelpfulNotificationDeleteView(request,notification_pk):
     if request.user.is_superuser:
         return redirect('users-my-notifications')
     else:
-        return redirect('forum-question-details',question_pk=question.pk) """
+        return redirect('forum-question-details',question_pk=question.pk)
