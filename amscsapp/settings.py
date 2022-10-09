@@ -162,4 +162,7 @@ AWS_S3_REGION_NAME = 'us-east-1'
 # file storage - comment out DEFAULT_FILE_STORAGE to store everything locally
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+# email domain
+AMSCSAPP_EMAIL_DOMAIN = os.environ.get('AMSCSAPP_EMAIL_DOMAIN')
+
 django_heroku.settings(locals())

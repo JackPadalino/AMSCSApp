@@ -5,7 +5,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import (
-    #RegisterView,
+    RegisterView,
     ProfileView,
     MyClassesListView,
     MyProjectsListView,
@@ -14,7 +14,7 @@ from .views import (
     )
 
 urlpatterns = [
-    #path('register/',RegisterView,name='users-register'),
+    path('register/',RegisterView,name='users-register'),
     path('login/',auth_views.LoginView.as_view(template_name='users/users-login.html'),name='users-login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='users/users-logout.html'),name='users-logout'),
     path('my-classes/',MyClassesListView,name='users-my-classes'),
