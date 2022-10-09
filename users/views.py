@@ -26,8 +26,8 @@ from forum.models import (
     HelpfulNotification
 )
 
-EMAIL_DOMAIN = os.environ.get('EMAIL_DOMAIN')
-REGISTERED_EMAILS = os.environ.get('REGISTERED_EMAILS')
+AMSCSAPP_EMAIL_DOMAIN = os.environ.get('AMSCSAPP_EMAIL_DOMAIN')
+#REGISTERED_EMAILS = os.environ.get('REGISTERED_EMAILS')
 
 # view to register a new user
 def RegisterView(request):
@@ -36,7 +36,7 @@ def RegisterView(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             email_domain = re.search("@[\w.]+", email)
-            if email_domain.group() == EMAIL_DOMAIN:
+            if email_domain.group() == AMSCSAPP_EMAIL_DOMAIN:
             #if email in REGISTERED_EMAILS:
                 form.save()
                 username = form.cleaned_data.get('username')
