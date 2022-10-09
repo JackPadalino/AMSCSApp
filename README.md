@@ -8,6 +8,7 @@
 - Configured environment variables - should double check!
 
 #### Next steps:
-- Push all templates to heroku
+- Update permissions for superusers - should be able to post and ask questions without
+  joinging a class
 - Removed student access if not currently enrolled in class - Do not remove projects!
 - Publish site!
