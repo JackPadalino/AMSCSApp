@@ -421,9 +421,10 @@
     text-align:center;
   }
 
-  /* #mobile-message{
+  #mobile-message{
     text-align:center;
-  } */
+    font-size: 13px;
+  }
 
   /*~~~~~CSS for mobile view~~~~~*/
   @media (max-width: 700px){
