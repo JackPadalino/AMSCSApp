@@ -402,6 +402,29 @@
     width:800px;
   }
   
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~Mobile CSS~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+  #mobile-page-container{
+    padding:20px;
+  }
+
+  #logo-container{
+    display:flex;
+    justify-content: center;
+  }
+
+  #mobile-title{
+    text-align:center;
+  }
+
+  /* #mobile-message{
+    text-align:center;
+  } */
+
   /*~~~~~CSS for mobile view~~~~~*/
   @media (max-width: 700px){
     body{
