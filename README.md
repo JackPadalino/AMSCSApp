@@ -8,7 +8,7 @@
 
 #### Next steps:
 - Update permissions for superusers - should be able to post and ask questions without
-  joinging a class
+  joining a class
 - Need to delete photos from Amazon AWS S3 when deleted from site by user
 - Removed student access if not currently enrolled in class - Do not remove projects!
 - Publish site!
