@@ -25,13 +25,14 @@
                     <a href ="{% url 'classroom-add-project-photo' project.pk %}">Add photo</a> |
                     <a href="{% url 'classroom-confirm-delete-project' project.pk %}">Delete project</a>
                 {% endif %}
-                {% if project.project_link %}
-                    <p><a href="{{ project.project_link }}">Link to my project</a></p>
-                {% endif %}
                 <br>
                 <legend class='border-bottom mb-4'>Project description</legend>
                 <p>{{ project.description }}</p>
                 <br>
+                {% if project.project_link %}
+                    <p><a href="{{ project.project_link }}">Link to my project</a></p>
+                    <br>
+                {% endif %}
                 <legend class='border-bottom mb-4'>Project media</legend>
                 <div id="project-media-container">
                     {% for project_video in project.project_videos.all %}
