@@ -47,7 +47,7 @@ def AskQuestionView(request,forum_topic_pk):
     forum=forum_topic.forum
     # display error message if student has not yet joined class
     if user.profile not in forum.classroom.profiles.all():
-        messages.error(request,f'Sorry. Only students who have joined this class can ask questions!')
+        messages.error(request,f'Sorry. Only students who have joined this class can make posts!')
         return redirect('forum-questions-list',forum_topic_pk=forum_topic.pk)
     else:
         if request.method == 'POST':

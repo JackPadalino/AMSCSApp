@@ -6,7 +6,7 @@
     </div>
     <div id='return-title-container-center-div'>
         <h1 id="page-title">Forum topic: {{ forum_topic.title }}</h1>
-        <a id='page-title-link' href="{% url 'forum-ask-new-question' forum_topic.pk %}">Ask a question</a>
+        <a id='page-title-link' href="{% url 'forum-ask-new-question' forum_topic.pk %}">Make a post</a>
     </div>
     <div id="return-title-container-right-div"></div>
 </div>
@@ -14,7 +14,7 @@
     {% for question in questions %}
         <h1><a href="{% url 'forum-question-details' question.pk %}">{{ question.title }}</a></h1>
         <p>{{ question.author.first_name }} {{ question.author.last_name }}</p>
-        <small><b>{{ question.answers.count }}</b> answers</small>
+        <small><b>{{ question.answers.count }}</b> responses</small>
     {% endfor %}    
 </div>
 {% endblock content %}
