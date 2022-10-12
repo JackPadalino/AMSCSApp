@@ -96,6 +96,11 @@
     font-size: 150px;
     text-align: center;
   }
+
+  #home-logo-div{
+    display:flex;
+    justify-content:center;
+  }
   
   #main-nav{
     background-color:hsl(170,80%,40%);
