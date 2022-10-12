@@ -345,10 +345,13 @@ def ProjectConfirmDeleteView(request,project_pk):
     }
     return render(request,'classroom/classroom-project-confirm-delete.html',context)
 
-# view to delete a project video
+# view to delete a project
 @login_required
 def ProjectDeleteView(request,project_pk):
     project  = Project.objects.get(pk=project_pk)
+    project_pictures = ProjectPhoto.objects.filter(project=project)
+    for picture in project_pictures: # deleting all photos associated with the project from AWS S3 first before deleting from Django db
+        S3Cli.Object(AWS_STORAGE_BUCKET_NAME,picture.__dict__['image']).delete()
     project.delete()
     return redirect('users-my-projects')
 
