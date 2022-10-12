@@ -16,10 +16,16 @@ class Profile(models.Model):
     grade = models.IntegerField(choices=grades,default=0)
     solutions = models.IntegerField(default=0)
     image = models.ImageField(default='profile_pics/default.jpeg',upload_to='profile_pics/')
-    #image = models.ImageField(default=None,upload_to='project_pics')
 
     #def get_absolute_url(self):
     #    return reverse('profile-details',kwargs={'pk':self.pk})
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
+
+class ProfilePic(models.Model):
+    profile = models.OneToOneField(Profile,on_delete=models.CASCADE)
+    image = models.ImageField(default='profile_pics/default.jpeg',upload_to='profile_pics/')
+
+    def __str__(self):
+        return f'{self.profile.user.first_name} {self.profile.user.last_name}'
