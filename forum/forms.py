@@ -14,8 +14,8 @@ class QuestionForm(forms.ModelForm):
         model = Question
         fields = ['title','content','project_link']
         labels = {
-            'title':'Title | Give your question a title. Keep it short and sweet!',
-            "content": "Content | Describe your question. Make sure you use CS vocabulary!",
+            'title':'Title | Give your post a title. Keep it short and sweet!',
+            "content": "Content | Make sure you use CS vocabulary!",
             'project_link':'Link | Add a link to a project (not required)',
         }
 
