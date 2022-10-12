@@ -7,7 +7,9 @@
 - Deployed on Heroku!
 
 #### Next steps:
-- Need to delete all unused profile pictures from AWS S3 buckets
+- Need to delete all unused profile pictures from AWS S3 buckets - consider separating profile and
+  creating a 'profile pics' model - this way you can associate pics with users, and delete all
+  unused photos from db and AWS
 - Update permissions for superusers - should be able to post and ask questions without
   joining a class
 - Removed student access if not currently enrolled in class - Do not remove projects!
