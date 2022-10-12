@@ -13,7 +13,7 @@
     {% for forum in forums %}
         <!--<h1><a href= url 'classroom-classroom-main' class.title class.pk %}">{{ class.title}}</a></h1>-->
         <h1><a href="{% url 'forum-topics-list' forum.pk %}">{{ forum.title }}</a></h1>
-        <small><b>Topics:</b> {{ forum.forum_topics.count }} | <b>Posts:</b> {{ forum.questions.count }} | <b>Responses:</b> {{ forum.answers.count }}</small>
+        <small><b>Topics:</b> {{ forum.forum_topics.count }} | <b>Posts:</b> {{ forum.questions.count }} | <b>Comments:</b> {{ forum.answers.count }}</small>
     {% endfor %}    
 </div>
 {% endblock content %}

@@ -25,16 +25,16 @@
             {% endif %}
             <br>
             {% if user != question.author %}
-                <a class="btn btn-outline-primary btn-sm" href="{% url 'forum-answer-question' question.pk %}">Respond to this</a>
+                <a class="btn btn-outline-primary btn-sm" href="{% url 'forum-answer-question' question.pk %}">Add comment</a>
             {% endif %}
         </div>
     </div>
     <!--Answers section-->
     <div class="question-answers-section">
         {% if not answers %}
-            <h3>No responses yet...</h3>
+            <h3>No comments yet...</h3>
         {% else %}
-            <h3>Responses</h3>
+            <h3>Comments</h3>
             <div id="answer-list-container">
             {% for answer in answers %}
                 <div id="answer-container">
