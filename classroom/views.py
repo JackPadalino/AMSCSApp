@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 #from users.views import login
 from django.urls import reverse_lazy
+import os
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.views.generic import (
     ListView,
@@ -33,6 +34,17 @@ from .forms import (
     )
 from users.models import (
     Profile
+    )
+
+# setting up boto3 client object to delete pictures from AWS S3 bucket
+import boto3
+AWS_ACCESS_KEY_ID = os.environ.get('AMSCSAPP_AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AMSCSAPP_AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AMSCSAPP_AWS_STORAGE_BUCKET_NAME')
+S3Cli = boto3.resource(
+    's3',
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY
     )
 
 class SchoolYearListView(LoginRequiredMixin,ListView):
@@ -394,6 +406,8 @@ def ProjectPhotoConfirmDeleteView(request,project_pk,project_photo_pk):
 @login_required
 def ProjectPhotoDeleteView(request,project_pk,project_photo_pk):
     photo  = ProjectPhoto.objects.get(pk=project_photo_pk)
+    s3_bucket_object = S3Cli.Object(AWS_STORAGE_BUCKET_NAME,photo.__dict__['image']) # deleting from AWS S3 bucket
+    s3_bucket_object.delete()
     photo.delete()
     return redirect('classroom-project-details',project_pk=project_pk)
 
