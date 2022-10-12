@@ -5,7 +5,8 @@
         <small><a href="{% url 'forum-topics-list' forum_topic.forum.pk %}">Back to {{ forum_topic.forum.title }} forum</a></small>
     </div>
     <div id='return-title-container-center-div'>
-        <h1 id="page-title">Forum topic: {{ forum_topic.title }}</h1>
+        <h1 id="page-title">{{ forum_topic.title }}</h1>
+        <!--add a short description of the topic here-->
         <a id='page-title-link' href="{% url 'forum-ask-new-question' forum_topic.pk %}">Make a post</a>
     </div>
     <div id="return-title-container-right-div"></div>
