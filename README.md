@@ -3,6 +3,7 @@
 - Forums allow students to ask questions and mark each other's solutions as 'helpful'
 
 #### Next steps:
+- Order students on 'meet the team' page by last name
 - Add the ability to respond to comments (comment on comments!)
 - Need to delete all unused profile pictures from AWS S3 buckets - consider separating profile and
   creating a 'profile pics' model - this way you can associate pics with users, and delete all
