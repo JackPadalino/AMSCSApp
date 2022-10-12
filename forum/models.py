@@ -20,6 +20,7 @@ class Forum(models.Model):
 # topic model
 class ForumTopic(models.Model):
     title = models.CharField(max_length=100,default=None)
+    description = models.TextField(max_length=500,null=True,default=None)
     forum = models.ForeignKey(Forum,on_delete=models.CASCADE,related_name='forum_topics')
 
     #def get_absolute_url(self):
