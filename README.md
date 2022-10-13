@@ -3,6 +3,7 @@
 - Forums allow students to ask questions and mark each other's solutions as 'helpful'
 
 #### Next steps:
+- Make project pics clickable and open in new tab
 - Order students on 'meet the team' page by last name
 - Add the ability to respond to comments (comment on comments!)
 - Need to delete all unused profile pictures from AWS S3 buckets - consider separating profile and
