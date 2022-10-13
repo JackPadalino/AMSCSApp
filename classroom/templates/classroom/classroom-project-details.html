@@ -45,7 +45,9 @@
                     {% endfor %}
                     {% for project_photo in project.project_photos.all %}
                         <div class="project-photo-video-container">
-                            <image class="project-photo" src="{{ project_photo.image.url }}"></image>
+                            <a href="{{ project_photo.image.url }}" target="_blank">
+                                <image class="project-photo" src="{{ project_photo.image.url }}"></image>
+                            </a>
                             {% if user == project.user %}
                                 <small><a href="{% url 'classroom-confirm-delete-project-photo' project.pk project_photo.pk %}">Delete photo</a></small>
                             {% endif %}
