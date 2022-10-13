@@ -375,7 +375,7 @@
   /*~~~~~forum questions list page~~~~~*/
   #forum-topic-description{
     text-align: center;
-    font-size: 25px;;
+    /* font-size: 25px; */
   }
 
   /*~~~~~ask new question page~~~~~*/
