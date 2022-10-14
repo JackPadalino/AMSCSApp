@@ -6,6 +6,7 @@
 - Order forum posts by date most recent descending!
 - Update forum post to display post prompt above input field. Students are having to switch back and forth.
 - Save drafts functionality?
+- Intead of having students name their posts, display a short 'cut off' sentence that is also a link to the post
 - Link a student's profile to their forum and project posts
 - Order students on 'meet the team' page by last name
 - Add the ability to respond to comments (comment on comments!)
