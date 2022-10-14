@@ -4,6 +4,7 @@
 
 #### Next steps:
 - Order forum posts by date most recent descending!
+- Link a student's profile to their forum and project posts
 - Order students on 'meet the team' page by last name
 - Add the ability to respond to comments (comment on comments!)
 - Need to delete all unused profile pictures from AWS S3 buckets - consider separating profile and
