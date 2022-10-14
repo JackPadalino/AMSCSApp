@@ -4,6 +4,8 @@
 
 #### Next steps:
 - Order forum posts by date most recent descending!
+- Update forum post to display post prompt above input field. Students are having to switch back and forth.
+- Save drafts functionality?
 - Link a student's profile to their forum and project posts
 - Order students on 'meet the team' page by last name
 - Add the ability to respond to comments (comment on comments!)
