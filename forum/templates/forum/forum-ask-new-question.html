@@ -7,7 +7,9 @@
     </div>
     <div id='return-title-container-center-div'>
         <h1 id="page-title">{{ forum_topic.title }}</h1>
-        <p id="forum-topic-description"><i>{{ forum_topic.description }}</i></p>
+        {% if forum_topic.description %}
+            <p id="forum-topic-description"><i>{{ forum_topic.description }}</i></p>
+        {% endif %}
     </div>
     <div id="return-title-container-right-div"></div>
 </div>
