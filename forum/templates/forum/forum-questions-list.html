@@ -17,10 +17,22 @@
 <div class="projects-list-div">
     {% for question in questions %}
         <div class="forum-questions-div">
-            <h2><a href="{% url 'forum-question-details' question.pk %}">{{ question.content }}</a></h2>
-            <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ question.author.profile.image.url }}">
-            <small>{{ question.author.first_name }} {{ question.author.last_name }}</small>
-            <small><b>{{ question.answers.count }}</b> comments</small>
+            <div id="forum-questions-div-student-info">
+                <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ question.author.profile.image.url }}">
+                <p>{{ question.author.first_name }} {{ question.author.last_name }}</p>
+            </div>
+            <div id="forum-questions-div-content">
+                <p>{{ question.content }}</p>
+            </div>
+            <div id="forum-questions-div-comments">
+                <small><b>{{ question.answers.count }}</b> comments</small>
+                {% if user == question.author %}
+                    <small><a href="{% url 'forum-edit-question' question.pk %}">Edit</a> | <a href="{% url 'forum-confirm-delete-question' question.pk %}">Delete</a></small>
+                {% endif %}
+                {% if user != question.author %}
+                    <small><a href="{% url 'forum-answer-question' question.pk %}">Add comment</a></small>
+                {% endif %}
+            </div>
         </div>
     {% endfor %}    
 </div>

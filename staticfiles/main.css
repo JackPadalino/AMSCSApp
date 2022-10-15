@@ -383,13 +383,30 @@
     flex-direction: column;
     width: 600px;
     margin-bottom:10px;
+    gap:5px;
+    /* border:1px solid black; */
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.500);
   }
 
-  .forum-questions-div h2{
+  #forum-questions-div-student-info{
+    display: flex;
+    align-items: center;
+    gap:10px;
+  }
+
+  #forum-questions-div-comments{
+    display: flex;
+    gap:10px;
+  }
+
+  /* .forum-questions-div h2{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
+  } */
   
   /*~~~~~ask new question page~~~~~*/
   #forum-question-form-div{
