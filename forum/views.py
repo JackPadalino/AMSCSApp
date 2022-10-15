@@ -64,8 +64,7 @@ def AskQuestionView(request,forum_topic_pk):
         else:
             form = QuestionForm()
         context = {
-            'title':forum_topic.title,
-            'description':forum_topic.description,
+            'forum_topic':forum_topic,
             'form':form
         }
         return render(request,'forum/forum-ask-new-question.html',context)
