@@ -12,7 +12,7 @@
 <div class="project-topics-div">
     {% for project_topic in project_topics %}
         <!--<h1><a href= url 'classroom-classroom-main' class.title class.pk %}">{{ class.title}}</a></h1>-->
-        <h1><a href="{% url 'classroom-projects-list' project_topic.pk %}">{{ project_topic.title }}</a></h1>
+        <h2><a href="{% url 'classroom-projects-list' project_topic.pk %}">{{ project_topic.title }}</a></h2>
     {% endfor %}    
 </div>
 <br>

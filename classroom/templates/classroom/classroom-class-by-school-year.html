@@ -12,7 +12,7 @@
 <div id="class-by-year-page-container">
     <div class="classes-div">
         {% for year in schoolyears %}
-            <h1><a href="{% url 'classroom-classes' year.pk %}">{{ year.year}}</a></h1>
+            <h2><a href="{% url 'classroom-classes' year.pk %}">{{ year.year}}</a></h2>
         {% endfor %}    
     </div>
 </div>

@@ -11,7 +11,7 @@
 </div>
 <div class="projects-list-div">
     {% for forum_topic in forum_topics %}
-        <h1><a href="{% url 'forum-questions-list' forum_topic.pk %}">{{ forum_topic.title }}</a></h1>
+        <h2><a href="{% url 'forum-questions-list' forum_topic.pk %}">{{ forum_topic.title }}</a></h2>
         <small><b>Posts:</b> {{ forum_topic.questions.count }} | <b>Comments:</b> {{ forum_topic.answers.count }}</small>
     {% endfor %}    
 </div>

@@ -17,7 +17,7 @@
     <div id="project-section">
         <div class="card" id="project-details-card">
             <div class="card-body" id="project-details-card-body">
-                <h1>{{ project.title }}</h1>
+                <hs>{{ project.title }}</h2>
                 {% if user == project.user %}
                     <a href="{% url 'classroom-update-project' project.pk %}">Edit text</a> |
                     <a href="{% url 'classroom-add-link' project.pk %}">Edit link</a> | 

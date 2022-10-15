@@ -11,7 +11,7 @@
 </div>
 <div class="classes-div">
     {% for class in classes %}
-        <h1><a href="{% url 'classroom-classroom-details' class.title class.pk %}">{{ class.title}}</a></h1>
+        <h2><a href="{% url 'classroom-classroom-details' class.title class.pk %}">{{ class.title}}</a></h2>
     {% endfor %}    
 </div>
 {% endblock content %}
