@@ -1,28 +1,28 @@
 {% extends 'main/main-base.html' %}
 {% block content %}
 
-<div id="return-title-container">
-    <div id="return-title-container-left-div">
-        <small><a href="{% url 'forum-topics-list' forum_topic.forum.pk %}">Back</a></small>
-    </div>
-    <div id='return-title-container-center-div'>
-        <h1 id="page-title">{{ forum_topic.title }}</h1>
-        {% if forum_topic.description %}
-            <p id="forum-topic-description"><i>{{ forum_topic.description }}</i></p>
-        {% endif %]}
-        <!--add a short description of the topic here-->
-        <a id='page-title-link' href="{% url 'forum-ask-new-question' forum_topic.pk %}">Make a post</a>
-    </div>
-    <div id="return-title-container-right-div"></div>
-</div>
-<div class="projects-list-div">
-    {% for question in questions %}
-        <div class="forum-questions-div">
-            <!--<p><a href= url 'forum-question-details' question.pk %}">{{ question.author.first_name }} {{ question.author.last_name }}</a></p>-->
-            <h2><a href="{% url 'forum-question-details' question.pk %}">{{ question.content }}</a></h2>
-            <small>{{ question.author.first_name }} {{ question.author.last_name }}</small>
-            <small><b>{{ question.answers.count }}</b> comments</small>
+    <div id="return-title-container">
+        <div id="return-title-container-left-div">
+            <small><a href="{% url 'forum-topics-list' forum_topic.forum.pk %}">Back</a></small>
         </div>
-    {% endfor %}    
-</div>
+        <div id='return-title-container-center-div'>
+            <h1 id="page-title">{{ forum_topic.title }}</h1>
+            {% if forum_topic.description %}
+                <p id="forum-topic-description"><i>{{ forum_topic.description }}</i></p>
+            {% endif %]}
+            <!--add a short description of the topic here-->
+            <a id='page-title-link' href="{% url 'forum-ask-new-question' forum_topic.pk %}">Make a post</a>
+        </div>
+        <div id="return-title-container-right-div"></div>
+    </div>
+    <div class="projects-list-div">
+        {% for question in questions %}
+            <div class="forum-questions-div">
+                <!--<p><a href= url 'forum-question-details' question.pk %}">{{ question.author.first_name }} {{ question.author.last_name }}</a></p>-->
+                <h2><a href="{% url 'forum-question-details' question.pk %}">{{ question.content }}</a></h2>
+                <small>{{ question.author.first_name }} {{ question.author.last_name }}</small>
+                <small><b>{{ question.answers.count }}</b> comments</small>
+            </div>
+        {% endfor %}    
+    </div>
 {% endblock content %}
