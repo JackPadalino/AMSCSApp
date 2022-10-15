@@ -19,6 +19,7 @@
             {% endif %}
             <br>
             <p>-{{ question.author.first_name }} {{ question.author.last_name }}</p>
+            <br>
             {% if user == question.author %}
                 <a href="{% url 'forum-edit-question' question.pk %}">Edit</a> | <a href="{% url 'forum-confirm-delete-question' question.pk %}">Delete</a>
             {% endif %}
