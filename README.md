@@ -8,7 +8,7 @@
   unused photos from db and AWS
 - Add links to student profile pictures on 'meet the team' pages
 - Link a student's profile to their forum and project posts
-- Order forum posts by date most recent descending!
+- Order forum posts by comments least descending!
 - Save drafts functionality?
 - Order students on 'meet the team' page by last name
 - Add the ability to respond to comments (comment on comments!)
