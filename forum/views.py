@@ -117,7 +117,7 @@ def QuestionDeleteView(request,question_pk):
 @login_required
 def QuestionsListView(request,forum_topic_pk):
     forum_topic=ForumTopic.objects.get(pk=forum_topic_pk)
-    questions=forum_topic.questions.all()
+    questions=forum_topic.questions.all().order_by('-date_posted')
     context={
         'forum_topic':forum_topic,
         'questions':questions
