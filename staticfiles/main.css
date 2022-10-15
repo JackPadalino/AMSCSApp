@@ -453,9 +453,13 @@
   }
   
   #answer-question-card{
-    width:800px;
+    width:600px;
   }
   
+  #answer-container{
+    width:600px;
+  }
+
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   /*~~~~~~~~~~Mobile CSS~~~~~~~~~~*/

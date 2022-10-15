@@ -128,6 +128,7 @@ def QuestionsListView(request,forum_topic_pk):
 def AnswerView(request,question_pk):
     user=request.user
     question=Question.objects.get(pk=question_pk)
+    answers=question.answers.all()
     forum_topic=question.forum_topic
     forum=forum_topic.forum
     if request.method == 'POST':
@@ -140,12 +141,13 @@ def AnswerView(request,question_pk):
                 answer.question=question
                 answer.content=form.cleaned_data['content']
                 answer.save()
-                return redirect('forum-question-details',question_pk=question.pk)
+                return redirect('forum-answer-question',question_pk=question.pk)
     else:
         form = AnswerForm()
     context = {
         'form':form,
-        'question':question
+        'question':question,
+        'answers':answers
     }
     return render(request,'forum/forum-answer-question.html',context)
 
