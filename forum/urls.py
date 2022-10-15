@@ -10,7 +10,7 @@ from .views import (
     # question views
     AskQuestionView,
     EditQuestionView,
-    QuestionDetailsView,
+    #QuestionDetailsView,
     QuestionConfirmDeleteView,
     QuestionDeleteView,
     # answer views
@@ -30,7 +30,7 @@ urlpatterns = [
     path('approve-deny-helpful-request/<int:notification_pk>/<str:decision>/',ApproveDenyHelpfulRequestView,name='forum-approve-deny-helpful-request'),
     # question urls
     path('ask-new-question/<int:forum_topic_pk>/',AskQuestionView,name='forum-ask-new-question'),
-    path('question-details/<int:question_pk>/',QuestionDetailsView,name='forum-question-details'),
+    #path('question-details/<int:question_pk>/',QuestionDetailsView,name='forum-question-details'),
     path('edit-question/<int:question_pk>/',EditQuestionView,name='forum-edit-question'),
     path('confirm-delete-question/<int:question_pk>/',QuestionConfirmDeleteView,name='forum-confirm-delete-question'),
     path('delete-question/<int:question_pk>/',QuestionDeleteView,name='forum-delete-question'),
