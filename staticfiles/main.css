@@ -378,7 +378,25 @@
     /* font-size: 25px; */
   }
 
+  .forum-questions-div{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin-bottom:10px;
+  }
+
+  .forum-questions-div h2{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
   /*~~~~~ask new question page~~~~~*/
+  #forum-question-form-div{
+    display:flex;
+    justify-content: center;
+  }
+
   #ask-question-card{
     width:800px;
   }

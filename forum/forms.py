@@ -12,9 +12,8 @@ class JoinClassForm2(forms.Form):
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ['title','content','project_link']
+        fields = ['content','project_link']
         labels = {
-            'title':'Title | Give your post a title. Keep it short and sweet!',
             "content": "Content | Make sure you use CS vocabulary!",
             'project_link':'Link | Add a link to a project (not required)',
         }

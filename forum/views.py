@@ -57,13 +57,15 @@ def AskQuestionView(request,forum_topic_pk):
                     question.author=user
                     question.forum=forum
                     question.forum_topic=forum_topic
-                    question.title=form.cleaned_data['title']
+                    #question.title=form.cleaned_data['title']
                     question.content=form.cleaned_data['content']
                     question.save()
                     return redirect('forum-questions-list',forum_topic_pk=forum_topic.pk)
         else:
             form = QuestionForm()
         context = {
+            'title':forum_topic.title,
+            'description':forum_topic.description,
             'form':form
         }
         return render(request,'forum/forum-ask-new-question.html',context)

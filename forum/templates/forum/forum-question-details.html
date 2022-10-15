@@ -13,15 +13,14 @@
     <div class="card" id="question-details-card">
         <div class="card-body" id="question-details-card-body">
             <h1>{{ question.title }}</h1>
-            <small><p>{{ question.author }}</p></small>
-            {% if user == question.author %}
-                <a href="{% url 'forum-edit-question' question.pk %}">Edit</a> <a href="{% url 'forum-confirm-delete-question' question.pk %}">Delete</a>
-            {% endif %}
-            <br>
+            <small><p>{{ question.author.first_name }} {{ question.author.last_name }}</p></small>
             <p>{{ question.content }}</p>
             {% if question.project_link %}
-                <br>
                 <p><a href="{{ question.project_link }}">Link to my project</a></p>
+            {% endif %}
+            <br>
+            {% if user == question.author %}
+                <a href="{% url 'forum-edit-question' question.pk %}">Edit</a> | <a href="{% url 'forum-confirm-delete-question' question.pk %}">Delete</a>
             {% endif %}
             <br>
             {% if user != question.author %}

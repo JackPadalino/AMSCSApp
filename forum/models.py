@@ -34,7 +34,7 @@ class Question(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='questions')
     forum = models.ForeignKey(Forum,on_delete=models.CASCADE,related_name='questions')
     forum_topic = models.ForeignKey(ForumTopic,on_delete=models.CASCADE,related_name='questions')
-    title = models.CharField(max_length=100,default=None)
+    #title = models.CharField(max_length=100,default=None)
     content = models.TextField(max_length=500)
     project_link = models.CharField(max_length=1000,blank=True,default=None)
     date_posted = models.DateTimeField(default=timezone.now)
@@ -43,7 +43,7 @@ class Question(models.Model):
         return reverse('forum-questions-list',kwargs={'pk':self.forum_topic.pk})
 
     def __str__(self):
-        return f"{self.title} - {self.author.first_name} {self.author.last_name} - {self.date_posted}"
+        return f"{self.forum_topic.title} - {self.author.first_name} {self.author.last_name} - {self.date_posted}"
 
 # answer model
 class Answer(models.Model):

@@ -1,19 +1,31 @@
 {% extends 'main/main-base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="card" id="ask-question-card">
-    <div class="card-body" id="ask-question-card-body">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Make a post</b></legend>
-                {{ form|crispy }}
-            </fieldset>
-            <br>
-            <div class='form-group'>
-                <button class="btn btn-outline-success" type='submit'>Post</button>
-            </div>
-        </form>
+<div id="return-title-container">
+    <div id="return-title-container-left-div">
+        <small><a href="#">Back</a></small>
+    </div>
+    <div id='return-title-container-center-div'>
+        <h1 id="page-title">{{ title }}</h1>
+        <p id="forum-topic-description"><i>{{ description }}</i></p>
+    </div>
+    <div id="return-title-container-right-div"></div>
+</div>
+<div id="forum-question-form-div">
+    <div class="card" id="ask-question-card">
+        <div class="card-body" id="ask-question-card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Make a post</b></legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <br>
+                <div class='form-group'>
+                    <button class="btn btn-outline-success" type='submit'>Post</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock content %}
