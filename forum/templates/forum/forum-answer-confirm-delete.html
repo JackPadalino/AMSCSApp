@@ -9,7 +9,7 @@
         </fieldset>
         <br>
         <div class='form-group'>
-            <a class="btn btn-outline-dark btn-sm" href="{% url 'forum-question-details' question.pk %}">Cancel</a>
+            <a class="btn btn-outline-dark btn-sm" href="{% url 'forum-answer-question' question.pk %}">Cancel</a>
             <a class="btn btn-outline-danger btn-sm" href="{% url 'forum-delete-answer' answer.pk %}">Yes, Delete</a>
         </div>
     </form>

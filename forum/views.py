@@ -85,11 +85,13 @@ def QuestionDetailsView(request,question_pk):
 @login_required
 def EditQuestionView(request,question_pk):
     question = Question.objects.get(pk=question_pk)
+    forum_topic = question.forum_topic
     if request.method == "POST":
         form = QuestionForm(request.POST,instance=question)
         if form.is_valid():
             form.save()
-            return redirect('forum-question-details',question_pk=question.pk)
+            return redirect('forum-questions-list',forum_topic_pk=forum_topic.pk)
+            #return redirect('forum-answer-question',question_pk=question.pk)
     else:
         form = QuestionForm(instance=question)
     context = {
@@ -128,7 +130,7 @@ def QuestionsListView(request,forum_topic_pk):
 def AnswerView(request,question_pk):
     user=request.user
     question=Question.objects.get(pk=question_pk)
-    answers=question.answers.all()
+    answers=question.answers.all().order_by('-date_posted')
     forum_topic=question.forum_topic
     forum=forum_topic.forum
     if request.method == 'POST':
@@ -159,7 +161,7 @@ def EditAnswerView(request,answer_pk):
         form = AnswerForm(request.POST,instance=answer)
         if form.is_valid():
             form.save()
-            return redirect('forum-question-details',question_pk=answer.question.pk)
+            return redirect('forum-answer-question',question_pk=answer.question.pk)
     else:
         form = AnswerForm(instance=answer)
     context = {
@@ -183,13 +185,13 @@ def AnswerConfirmDeleteView(request,answer_pk):
 def AnswerDeleteView(request,answer_pk):
     answer = Answer.objects.get(pk=answer_pk)
     answer.delete()
-    return redirect('forum-question-details',question_pk=answer.question.pk)
+    return redirect('forum-answer-question',question_pk=answer.question.pk)
 
 def AnswerNotificationDeleteView(request,notification_pk):
     notification=AnswerNotification.objects.get(pk=notification_pk)
     question=notification.answer.question
     notification.delete()
-    return redirect('forum-question-details',question_pk=question.pk)
+    return redirect('forum-answer-question',question_pk=question.pk)
 
 def RequestHelpfulNotificationView(request,answer_pk):
     answer=Answer.objects.get(pk=answer_pk)
@@ -205,7 +207,7 @@ def RequestHelpfulNotificationView(request,answer_pk):
             for user in superusers:
                 HelpfulNotification.objects.create(answer=answer,notified_user=user)
         answer.save()
-    return redirect('forum-question-details',question_pk=answer.question.pk)
+    return redirect('forum-answer-question',question_pk=answer.question.pk)
 
 def ApproveDenyHelpfulRequestView(request,notification_pk,decision):
     notification=HelpfulNotification.objects.get(pk=notification_pk)
@@ -234,4 +236,4 @@ def HelpfulNotificationDeleteView(request,notification_pk):
     if request.user.is_superuser:
         return redirect('users-my-notifications')
     else:
-        return redirect('forum-question-details',question_pk=question.pk)
+        return redirect('forum-answer-question',question_pk=question.pk)
