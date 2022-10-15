@@ -4,10 +4,10 @@
 {% block content %}
 <div id="return-title-container">
     <div id="return-title-container-left-div">
-        <small><a href="{% url 'classroom-projects-list' project.project_topic.pk %}">Back to {{ project.project_topic }} projects</a></small>
+        <small><a href="{% url 'classroom-projects-list' project.project_topic.pk %}">Back to all projects</a></small>
         {% if user == project.user %}
             <br>
-            <small><a href="{% url 'users-my-projects' %}">Back to My projects</a></small>
+            <small><a href="{% url 'users-my-projects' %}">Back to my projects</a></small>
         {% endif %}
     </div>
     <div id='return-title-container-center-div'></div>
