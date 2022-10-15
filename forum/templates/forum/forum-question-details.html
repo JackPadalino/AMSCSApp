@@ -12,12 +12,13 @@
 <div id="question-details-page-container">
     <div class="card" id="question-details-card">
         <div class="card-body" id="question-details-card-body">
-            <p>{{ question.author.first_name }} {{ question.author.last_name }}</p>
             <p>{{ question.content }}</p>
             {% if question.project_link %}
-                <p><a href="{{ question.project_link }}">Link to my project</a></p>
+                <br>
+                <p><a href="{{ question.project_link }}" target="_blank">Link to my project</a></p>
             {% endif %}
             <br>
+            <p>-{{ question.author.first_name }} {{ question.author.last_name }}</p>
             {% if user == question.author %}
                 <a href="{% url 'forum-edit-question' question.pk %}">Edit</a> | <a href="{% url 'forum-confirm-delete-question' question.pk %}">Delete</a>
             {% endif %}
