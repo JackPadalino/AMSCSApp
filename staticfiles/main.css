@@ -386,15 +386,14 @@
   #forum-questions-list-div{
     display:flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap:20px;
-    justify-content: space-evenly;
   }
 
   .forum-questions-div{
     display: flex;
     flex-direction: column;
-    width: 600px;
-    gap:5px;
+    width: 33%;
     border-radius: 10px;
     padding: 15px;
     background-color: white;
