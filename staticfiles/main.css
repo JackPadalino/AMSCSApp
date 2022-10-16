@@ -378,6 +378,12 @@
     /* font-size: 25px; */
   }
 
+  #forum-questions-list-div{
+    display:flex;
+    gap:20px;
+    flex-wrap: wrap;
+  }
+
   .forum-questions-div{
     display: flex;
     flex-direction: column;
