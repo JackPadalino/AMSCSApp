@@ -14,31 +14,33 @@
     </div>
     <div id="return-title-container-right-div"></div>
 </div>
-<div id="forum-questions-list-div">
-    {% for question in questions %}
-        <div class="forum-questions-div">
-            <div id="forum-questions-div-student-info">
-                <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ question.author.profile.image.url }}">
-                <p>{{ question.author.first_name }} {{ question.author.last_name }}</p>
+<div id="forum-questions-list-main-div">
+    <div id="forum-questions-list-div">
+        {% for question in questions %}
+            <div class="forum-questions-div">
+                <div id="forum-questions-div-student-info">
+                    <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ question.author.profile.image.url }}">
+                    <p>{{ question.author.first_name }} {{ question.author.last_name }}</p>
+                </div>
+                <div id="forum-questions-div-content">
+                    <p>{{ question.content }}</p>
+                </div>
+                <div id="forum-questions-div-comments">
+                    {% if user == question.author %}
+                        <a href="{% url 'forum-answer-question' question.pk %}"><b>{{ question.answers.count }}</b> comments</a> |
+                    {% else %}
+                        <p><b>{{ question.answers.count }}</b> comments</p> |
+                    {% endif %}
+                    {% if user == question.author %}
+                        <a href="{% url 'forum-edit-question' question.pk %}">edit</a> | <a href="{% url 'forum-confirm-delete-question' question.pk %}">delete</a>
+                    {% endif %}
+                    {% if user != question.author %}
+                        <a href="{% url 'forum-answer-question' question.pk %}">add comment</a>
+                    {% endif %}
+                </div>
             </div>
-            <div id="forum-questions-div-content">
-                <p>{{ question.content }}</p>
-            </div>
-            <div id="forum-questions-div-comments">
-                {% if user == question.author %}
-                    <a href="{% url 'forum-answer-question' question.pk %}"><b>{{ question.answers.count }}</b> comments</a> |
-                {% else %}
-                    <p><b>{{ question.answers.count }}</b> comments</p> |
-                {% endif %}
-                {% if user == question.author %}
-                    <a href="{% url 'forum-edit-question' question.pk %}">edit</a> | <a href="{% url 'forum-confirm-delete-question' question.pk %}">delete</a>
-                {% endif %}
-                {% if user != question.author %}
-                    <a href="{% url 'forum-answer-question' question.pk %}">add comment</a>
-                {% endif %}
-            </div>
-        </div>
-    {% endfor %}    
+        {% endfor %}    
+    </div>
 </div>
 {% endblock content %}
 
