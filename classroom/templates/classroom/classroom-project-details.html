@@ -7,7 +7,7 @@
         <small><a href="{% url 'classroom-projects-list' project.project_topic.pk %}">Back to all projects</a></small>
         {% if user == project.user %}
             <br>
-            <small><a href="{% url 'users-my-projects' %}">Back to my projects</a></small>
+            <small><a href="{% url 'users-my-projects' %}">Back</a></small>
         {% endif %}
     </div>
     <div id='return-title-container-center-div'></div>
