@@ -43,7 +43,7 @@ class Project(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='projects')
     project_topic = models.ForeignKey(ProjectTopic,on_delete=models.CASCADE,related_name='projects')
     title = models.CharField(max_length=50)
-    description = models.TextField(max_length=2000)
+    description = models.TextField()
     project_link = models.URLField(max_length=1000,default=None,blank=True,null=True)
     temp = models.BooleanField(default=False)
 
