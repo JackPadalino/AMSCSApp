@@ -277,6 +277,10 @@
     gap:10px;
   }
   
+  #classroom-project-description{
+    white-space: pre-line;
+  }
+
   .project-photo-video-container{
     display: flex;
     flex-direction: column;
