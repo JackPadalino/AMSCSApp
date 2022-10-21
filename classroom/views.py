@@ -124,7 +124,7 @@ def ClassProjectsListView(request,pk):
 @login_required
 def StudentProfileListView(request,classroom_pk,classroom_title):
     classroom=Classroom.objects.get(pk=classroom_pk)
-    profiles=classroom.profiles.all()
+    profiles=classroom.profiles.all().order_by('user')
     context = {
         'classroom':classroom,
         'profiles':profiles
