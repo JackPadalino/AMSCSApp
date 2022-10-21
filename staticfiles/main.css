@@ -274,6 +274,7 @@
   #project-media-container{
     display: flex;
     justify-content: left;
+    flex-wrap: wrap;
     gap:10px;
   }
   
@@ -286,9 +287,13 @@
     flex-direction: column;
   }
   
+  #classroom-project-link{
+    font-size: 20px;
+  }
+
   .project-photo{
-    height:150px;
-    width:150px;
+    height:200px;
+    width:200px;
   }
   
   #comment-form{

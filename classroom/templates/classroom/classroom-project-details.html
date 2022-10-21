@@ -30,14 +30,14 @@
                 <p id="classroom-project-description">{{ project.description }}</p>
                 <br>
                 {% if project.project_link %}
-                    <p><a href="{{ project.project_link }}" target="_blank">Link to my project</a></p>
+                    <p id="classroom-project-link"><a href="{{ project.project_link }}" target="_blank">Click here to see my project!</a></p>
                     <br>
                 {% endif %}
                 <legend class='border-bottom mb-4'>Project media</legend>
                 <div id="project-media-container">
                     {% for project_video in project.project_videos.all %}
                         <div class="project-photo-video-container">
-                            {% video project_video.video '150x150' %}
+                            {% video project_video.video '200x200' %}
                             {% if user == project.user %}
                                 <small><a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a></small>
                             {% endif %}
