@@ -10,7 +10,6 @@
 - Link a student's profile to their forum and project posts
 - Order forum posts by comments least descending!
 - Save drafts functionality?
-- Order students on 'meet the team' page by last name
 - Add the ability to respond to comments (comment on comments!)
 - Update permissions for superusers - should be able to post and ask questions without
   joining a class
