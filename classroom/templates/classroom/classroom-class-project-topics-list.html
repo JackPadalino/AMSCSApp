@@ -10,10 +10,12 @@
     <div id="return-title-container-right-div"></div>
 </div>
 <div class="project-topics-div">
-    {% for project_topic in project_topics %}
-        <!--<h1><a href= url 'classroom-classroom-main' class.title class.pk %}">{{ class.title}}</a></h1>-->
-        <h2><a href="{% url 'classroom-projects-list' project_topic.pk %}">{{ project_topic.title }}</a></h2>
-    {% endfor %}    
+    <ul>
+        {% for project_topic in project_topics %}
+            <!--<h1><a href= url 'classroom-classroom-main' class.title class.pk %}">{{ class.title}}</a></h1>-->
+            <li><h2><a href="{% url 'classroom-projects-list' project_topic.pk %}">{{ project_topic.title }}</a></h2></li>
+        {% endfor %}
+    </ul>
 </div>
 <br>
 {% endblock content %}
