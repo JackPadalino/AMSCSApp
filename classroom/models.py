@@ -32,6 +32,7 @@ class Classroom(models.Model):
 class ProjectTopic(models.Model):
     title = models.CharField(max_length=100,default=None)
     classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE,related_name='project_topics')
+    date_posted = models.DateTimeField(default=timezone.now)
 
     #def get_absolute_url(self):
     #    return reverse('topic-details',kwargs={'pk':self.pk})
@@ -46,6 +47,7 @@ class Project(models.Model):
     description = models.TextField()
     project_link = models.URLField(max_length=1000,default=None,blank=True,null=True)
     temp = models.BooleanField(default=False)
+    date_posted = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
         return reverse('classroom-project-details',kwargs={'project_pk':self.pk})
@@ -74,6 +76,7 @@ class ProjectComment(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='comments')
     project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='comments')
     content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
         return reverse('classroom-project-details',kwargs={'project_pk':self.project.pk})

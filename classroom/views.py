@@ -103,7 +103,7 @@ def JoinClassView(request,classroom_pk):
 @login_required
 def ClassProjectTopicsListView(request,pk):
     classroom = Classroom.objects.get(pk=pk)
-    project_topics = ProjectTopic.objects.filter(classroom=classroom).order_by('title')
+    project_topics = ProjectTopic.objects.filter(classroom=classroom).order_by('-date_posted')
     context = {
         'classroom':classroom,
         'project_topics':project_topics,
