@@ -272,9 +272,21 @@ body{
   gap:50px;
 }
 
-#project-details-card{
+#project-section{
   width:800px;
 }
+
+#comments-section{
+  width:800px;
+}
+
+#comment-form-section{
+  width:800px;
+}
+
+/* #project-details-card{
+  width:800px;
+} */
 
 #project-media-container{
   display: flex;
@@ -474,13 +486,6 @@ body{
   display: flex;
   flex-direction: column;
   gap:50px;
-}
-
-#answer-question-card{
-  width:600px;
-}
-
-#answer-container{
   width:600px;
 }
 
