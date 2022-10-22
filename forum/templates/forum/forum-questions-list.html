@@ -20,7 +20,7 @@
             <div class="forum-questions-div">
                 <div id="forum-questions-div-student-info">
                     <img class="rounded-circle account-img" style="width:50px;height:50px" src="{{ question.author.profile.image.url }}">
-                    <p>{{ question.author.first_name }} {{ question.author.last_name }}</p>
+                    <a href="{% url 'classroom-student-details' question.author.profile.pk question.forum.classroom.pk %}"><p>{{ question.author.first_name }} {{ question.author.last_name }}</p></a>
                 </div>
                 <div id="forum-questions-div-content">
                     <p>{{ question.content }}</p>

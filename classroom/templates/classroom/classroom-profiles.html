@@ -18,7 +18,7 @@
                         <h3><a href="{% url 'classroom-student-details' profile.pk classroom.pk %}">{{ profile.user.first_name }} {{ profile.user.last_name }}</a></h3>
                     </div>
                     <div class="card-body-image meet-the-team-profile-card-body-image">
-                        <img class="rounded-circle account-img" style="width:200px;height:200px" src="{{ profile.image.url }}">
+                        <a href="{% url 'classroom-student-details' profile.pk classroom.pk %}"><img class="rounded-circle account-img" style="width:200px;height:200px" src="{{ profile.image.url }}"></a>
                     </div>
                 </div>
             </div>
