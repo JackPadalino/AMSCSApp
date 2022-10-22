@@ -8,7 +8,7 @@
   unused photos from db and AWS
 - Add links to student profile pictures on 'meet the team' pages
 - Link a student's profile to their forum and project posts
-- Order forum posts by comments least descending!
+- Change width of comment divs in forums
 - Save drafts functionality?
 - Add the ability to respond to comments (comment on comments!)
 - Update permissions for superusers - should be able to post and ask questions without
