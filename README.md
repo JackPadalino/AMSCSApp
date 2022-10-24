@@ -12,3 +12,6 @@
 - Update permissions for superusers - should be able to post and ask questions without
   joining a class
 - Removed student access if not currently enrolled in class - Do not remove projects!
+
+#### Resources
+- https://stackoverflow.com/questions/3140779/how-to-delete-files-from-amazon-s3-bucket
