@@ -21,7 +21,7 @@ from .forms import (
 @login_required
 def ForumTopicsListView(request,pk):
     forum=Forum.objects.get(pk=pk)
-    forum_topics=forum.forum_topics.all()
+    forum_topics=forum.forum_topics.all().order_by('-pk')
     classroom=forum.classroom
     context={
         'forum':forum,
