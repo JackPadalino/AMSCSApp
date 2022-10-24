@@ -14,7 +14,7 @@
     {% for project in projects %}
         <!--<h1><a href= url 'classroom-classroom-main' class.title class.pk %}">{{ class.title}}</a></h1>-->
         <h2><a href="{% url 'classroom-project-details' project.pk %}">{{ project.title }}</a></h2>
-        <p>{{ project.user.first_name }} {{ project.user.last_name }}</p>
+        <p>{{ project.user.first_name }} {{ project.user.last_name }} | {{ project.comments.count }} comments</p>
     {% endfor %}    
 </div>
 {% endblock content %}
