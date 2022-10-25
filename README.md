@@ -3,6 +3,7 @@
 - Forums allow students to ask questions and mark each other's solutions as 'helpful'
 
 #### Next steps:
+- Complete 'My activity' page to show a user all their posts and comments
 - Need to delete all unused profile pictures from AWS S3 buckets - consider separating profile and
   creating a 'profile pics' model - this way you can associate pics with users, and delete all
   unused photos from db and AWS
