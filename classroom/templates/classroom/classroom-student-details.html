@@ -54,7 +54,7 @@
         <h2>Recent activity</h2>
         <ul>
             {% for comment in project_comments %}
-                <li><p><a href="{% url 'classroom-project-details' comment.project.pk %}">Commented on {{ comment.project.user.first_name }} {{ comment.project.user.last_name }}'s '{{ comment.project.project_topic }}' project</a></p></li>
+                <li><p><a href="{% url 'classroom-project-details' comment.project.pk %}">Commented on {{ comment.project.user.first_name }} {{ comment.project.user.last_name }}'s '{{ comment.project.project_topic.title }}' project</a></p></li>
             {% endfor %}
         </ul>
         <!--forum activity goes here-->
