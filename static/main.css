@@ -322,6 +322,11 @@ body{
 }
 
 /*~~~~~classroom student details pag~~~~~e*/
+#student-details-main-div{
+  display:flex;
+  gap:20px;
+}
+
 #student-details-card{
   width:800px;
 }

@@ -7,46 +7,57 @@
     <div id='return-title-container-center-div'></div>
     <div id="return-title-container-right-div"></div>
 </div>
-<div class="card" id="student-details-card">
-    <div class="card-body" id="student-details-card-body">
-        <div id="student-details-card-profile-header-div">
-            <div id="student-details-card-student-info-div">
-                <h2>{{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
-                <h3>{{ profile.user.username }}</h3>
-                <h5>{{ profile.grade }}th grade</h5>
-                <small><p>{{ user_solutions }} solutions</p></small>
-                {% if user_solutions < 5 %}
-                    <h1>🎖</h1>
-                {% elif user_solutions >= 5 %}
-                    <h1>🎖🎖</h1>
-                {% elif user_solutions >= 10 %}
-                    <h1>🎖🎖🎖</h1>
-                {% elif user_solutions >= 15 %}
-                    <h1>🎖🎖🎖🎖</h1>
-                {% elif user_solutions >= 20 %}
-                    <h1>🎖🎖🎖🎖🎖</h1>
-                {% endif %}
+<div id="student-details-main-div">
+    <div class="card" id="student-details-card">
+        <div class="card-body" id="student-details-card-body">
+            <div id="student-details-card-profile-header-div">
+                <div id="student-details-card-student-info-div">
+                    <h2>{{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
+                    <h3>{{ profile.user.username }}</h3>
+                    <h5>{{ profile.grade }}th grade</h5>
+                    <small><p>{{ user_solutions }} solutions</p></small>
+                    {% if user_solutions < 5 %}
+                        <h1>🎖</h1>
+                    {% elif user_solutions >= 5 %}
+                        <h1>🎖🎖</h1>
+                    {% elif user_solutions >= 10 %}
+                        <h1>🎖🎖🎖</h1>
+                    {% elif user_solutions >= 15 %}
+                        <h1>🎖🎖🎖🎖</h1>
+                    {% elif user_solutions >= 20 %}
+                        <h1>🎖🎖🎖🎖🎖</h1>
+                    {% endif %}
+                </div>
+                <div id="student-details-card-profile-picture-div">
+                    <img class="rounded-circle account-img" style="width:300px;height:300px" src="{{ profile.image.url }}">
+                </div>
             </div>
-            <div id="student-details-card-profile-picture-div">
-                <img class="rounded-circle account-img" style="width:300px;height:300px" src="{{ profile.image.url }}">
+            <div class="student-details-card-projects-div">
+                <div id="student-details-card-heading-div">
+                    <h3 id="student-details-card-heading">My classes</h3>
+                </div>
+                {% for classroom in classrooms %}
+                    <h3><a href="{% url 'classroom-classroom-details' classroom.title classroom.pk %}">{{ classroom.title }}</a></h3>
+                {% endfor %}
+                <br>
+                <div id="profile-card-heading-div">
+                    <h3 id="student-details-card-heading">My projects</h3>
+                </div>
+                {% for project in projects %}
+                    <h3><a href="{% url 'classroom-project-details' project.pk %}">{{ project.title }}</a></h3>
+                    <p>{{ project.blurb }}</p>
+                {% endfor %}
             </div>
         </div>
-        <div class="student-details-card-projects-div">
-            <div id="student-details-card-heading-div">
-                <h3 id="student-details-card-heading">My classes</h3>
-            </div>
-            {% for classroom in classrooms %}
-                <h3><a href="{% url 'classroom-classroom-details' classroom.title classroom.pk %}">{{ classroom.title }}</a></h3>
+    </div>
+    <div id="student-activity-container">
+        <h2>Recent activity</h2>
+        <ul>
+            {% for comment in project_comments %}
+                <li><p><a href="{% url 'classroom-project-details' comment.project.pk %}">Commented on {{ comment.project.user.first_name }} {{ comment.project.user.last_name }}'s '{{ comment.project.project_topic }}' project</a></p></li>
             {% endfor %}
-            <br>
-            <div id="profile-card-heading-div">
-                <h3 id="student-details-card-heading">My projects</h3>
-            </div>
-            {% for project in projects %}
-                <h3><a href="{% url 'classroom-project-details' project.pk %}">{{ project.title }}</a></h3>
-                <p>{{ project.blurb }}</p>
-            {% endfor %}
-        </div>
+        </ul>
+        <!--forum activity goes here-->
     </div>
 </div>
 {% endblock content %}

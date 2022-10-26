@@ -135,16 +135,19 @@ def StudentProfileListView(request,classroom_pk,classroom_title):
 @login_required
 def StudentDetailsView(request,profile_pk,classroom_pk):
     profile = Profile.objects.get(pk=profile_pk)
+    user = profile.user
     classroom = Classroom.objects.get(pk=classroom_pk)
     classrooms = profile.classes.all()
     projects = Project.objects.filter(user=profile.user)
     user_solutions = len(profile.user.answers.filter(solution=True))
+    project_comments = ProjectComment.objects.filter(author=user).order_by('-date_posted')
     context = {
         'profile':profile,
         'classroom':classroom,
         'classrooms':classrooms,
         'projects':projects,
-        'user_solutions':user_solutions
+        'user_solutions':user_solutions,
+        'project_comments':project_comments
     }
     return render(request,'classroom/classroom-student-details.html',context)
 
