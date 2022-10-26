@@ -35,6 +35,12 @@ from .forms import (
 from users.models import (
     Profile
     )
+from forum.models import (
+    Forum,
+    ForumTopic,
+    Question,
+    Answer
+)
 
 # setting up boto3 client object to delete pictures from AWS S3 bucket
 import boto3
@@ -141,13 +147,15 @@ def StudentDetailsView(request,profile_pk,classroom_pk):
     projects = Project.objects.filter(user=profile.user)
     user_solutions = len(profile.user.answers.filter(solution=True))
     project_comments = ProjectComment.objects.filter(author=user).order_by('-date_posted')
+    forum_answers = Answer.objects.filter(author=user)
     context = {
         'profile':profile,
         'classroom':classroom,
         'classrooms':classrooms,
         'projects':projects,
         'user_solutions':user_solutions,
-        'project_comments':project_comments
+        'project_comments':project_comments,
+        'forum_answers':forum_answers
     }
     return render(request,'classroom/classroom-student-details.html',context)
 
