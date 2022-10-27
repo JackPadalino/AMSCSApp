@@ -146,8 +146,8 @@ def StudentDetailsView(request,profile_pk,classroom_pk):
     classrooms = profile.classes.all()
     projects = Project.objects.filter(user=profile.user)
     user_solutions = len(profile.user.answers.filter(solution=True))
-    project_comments = ProjectComment.objects.filter(author=user).order_by('-date_posted')
-    forum_answers = Answer.objects.filter(author=user)
+    project_comments = ProjectComment.objects.filter(author=user).order_by('-date_posted')[:10] # getting the first 10
+    forum_answers = Answer.objects.filter(author=user).order_by('-date_posted')[:10]
     context = {
         'profile':profile,
         'classroom':classroom,
