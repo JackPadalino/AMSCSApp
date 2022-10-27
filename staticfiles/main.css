@@ -16,7 +16,8 @@
   
 /*~~~~~all tags~~~~~*/
 h1,h2,h3,h4,h5,p,a{
-  margin-bottom:5px;
+  /* margin-bottom:5px; */
+  margin:0px;
   font-family: Roboto Mono;
 }
   
@@ -106,7 +107,7 @@ body{
 
 #main-nav{
   background-color:hsl(170,80%,40%);
-  border-bottom: 1px solid lightgrey;
+  /* border-bottom: 1px solid lightgrey; */
   padding-left:10px;
   padding-right:10px;
   margin-bottom:20px;
@@ -322,6 +323,11 @@ body{
 }
 
 /*~~~~~classroom student details pag~~~~~e*/
+#student-details-main-div{
+  display:flex;
+  gap:20px;
+}
+
 #student-details-card{
   width:800px;
 }
