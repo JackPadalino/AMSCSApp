@@ -16,16 +16,16 @@
                     <h3>{{ profile.user.username }}</h3>
                     <h5>{{ profile.grade }}th grade</h5>
                     <small><p>{{ user_solutions }} solutions</p></small>
-                    {% if user_solutions < 5 %}
-                        <h1>🎖</h1>
-                    {% elif user_solutions >= 5 %}
-                        <h1>🎖🎖</h1>
-                    {% elif user_solutions >= 10 %}
-                        <h1>🎖🎖🎖</h1>
+                    {% if user_solutions >= 20 %}
+                        <h1>🎖🎖🎖🎖🎖</h1>
                     {% elif user_solutions >= 15 %}
                         <h1>🎖🎖🎖🎖</h1>
-                    {% elif user_solutions >= 20 %}
-                        <h1>🎖🎖🎖🎖🎖</h1>
+                    {% elif user_solutions >= 10 %}
+                        <h1>🎖🎖🎖</h1>
+                    {% elif user_solutions >= 5 %}
+                        <h1>🎖🎖</h1>
+                    {% else %}
+                        <h1>🎖</h1>
                     {% endif %}
                 </div>
                 <div id="student-details-card-profile-picture-div">
