@@ -13,7 +13,7 @@ grades = (
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     classes = models.ManyToManyField(Classroom,blank=True,default=None,related_name='profiles')
-    grade = models.IntegerField(choices=grades,default=0)
+    #grade = models.IntegerField(choices=grades,default=0)
     solutions = models.IntegerField(default=0)
     image = models.ImageField(default='profile_pics/default.jpeg',upload_to='profile_pics/')
 

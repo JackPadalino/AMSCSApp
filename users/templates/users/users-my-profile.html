@@ -7,18 +7,18 @@
             <div id="profile-card-student-info-div">
                 <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                 <h3>{{ user.username }}</h3>
-                <h5>{{ user.profile.grade }}th grade</h5>
+                <!--<h5>{{ user.profile.grade }}th grade</h5>-->
                 <small><p>{{ user_solutions }} solutions</p></small>
-                {% if user_solutions < 5 %}
-                    <h1>🎖</h1>
-                {% elif user_solutions >= 5 %}
-                    <h1>🎖🎖</h1>
-                {% elif user_solutions >= 10 %}
-                    <h1>🎖🎖🎖</h1>
+                {% if user_solutions >= 20 %}
+                    <h1>🎖🎖🎖🎖🎖</h1>
                 {% elif user_solutions >= 15 %}
                     <h1>🎖🎖🎖🎖</h1>
-                {% elif user_solutions >= 20 %}
-                    <h1>🎖🎖🎖🎖🎖</h1>
+                {% elif user_solutions >= 10 %}
+                    <h1>🎖🎖🎖</h1>
+                {% elif user_solutions >= 5 %}
+                    <h1>🎖🎖</h1>
+                {% else %}
+                    <h1>🎖</h1>
                 {% endif %}
             </div>
             <div id="profile-card-profile-picture-div">
