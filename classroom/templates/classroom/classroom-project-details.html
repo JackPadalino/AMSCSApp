@@ -41,7 +41,7 @@
         <div id="project-media-section">
             {% for project_video in project.project_videos.all %}
                 <div class="project-photo-video-container">
-                    {% video project_video.video '300x300' %}
+                    {% video project_video.video '250x250' %}
                     {% if user == project.user %}
                         <small><a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a></small>
                     {% endif %}
