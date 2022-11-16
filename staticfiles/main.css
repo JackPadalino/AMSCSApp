@@ -280,11 +280,19 @@ body{
 }
 
 #project-section{
-  width:800px;
+  width:50%;
 }
 
 #comments-section{
   width:800px;
+}
+
+#project-media-section{
+  width:50%;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap:10px;
 }
 
 #comment-form-section{
@@ -295,12 +303,9 @@ body{
   width:800px;
 } */
 
-#project-media-container{
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
-  gap:10px;
-}
+/* #project-media-container{
+  
+} */
 
 #classroom-project-description{
   white-space: pre-line;

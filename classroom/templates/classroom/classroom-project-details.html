@@ -39,26 +39,24 @@
             </div>
         </div>
         <div id="project-media-section">
-            <div id="project-media-container">
-                {% for project_video in project.project_videos.all %}
-                    <div class="project-photo-video-container">
-                        {% video project_video.video '300x300' %}
-                        {% if user == project.user %}
-                            <small><a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a></small>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-                {% for project_photo in project.project_photos.all %}
-                    <div class="project-photo-video-container">
-                        <a href="{{ project_photo.image.url }}" target="_blank">
-                            <image class="project-photo" src="{{ project_photo.image.url }}"></image>
-                        </a>
-                        {% if user == project.user %}
-                            <small><a href="{% url 'classroom-confirm-delete-project-photo' project.pk project_photo.pk %}">Delete photo</a></small>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
+            {% for project_video in project.project_videos.all %}
+                <div class="project-photo-video-container">
+                    {% video project_video.video '300x300' %}
+                    {% if user == project.user %}
+                        <small><a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a></small>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% for project_photo in project.project_photos.all %}
+                <div class="project-photo-video-container">
+                    <a href="{{ project_photo.image.url }}" target="_blank">
+                        <image class="project-photo" src="{{ project_photo.image.url }}"></image>
+                    </a>
+                    {% if user == project.user %}
+                        <small><a href="{% url 'classroom-confirm-delete-project-photo' project.pk project_photo.pk %}">Delete photo</a></small>
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
     </div>
     <div id="comments-section">
