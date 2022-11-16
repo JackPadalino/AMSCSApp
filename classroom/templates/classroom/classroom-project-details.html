@@ -14,47 +14,50 @@
     <div id="return-title-container-right-div"></div>
 </div>
 <div id="project-details-page-container">
-    <div id="project-section">
-        <div class="card" id="project-details-card">
-            <div class="card-body" id="project-details-card-body">
-                <h2>{{ project.title }}</h2>
-                {% if user == project.user %}
-                    <a href="{% url 'classroom-update-project' project.pk %}">Edit text</a> |
-                    <a href="{% url 'classroom-add-link' project.pk %}">Edit link</a> | 
-                    <a href ="{% url 'classroom-add-video' project.pk %}">Add video</a> |
-                    <a href ="{% url 'classroom-add-project-photo' project.pk %}">Add photo</a> |
-                    <a href="{% url 'classroom-confirm-delete-project' project.pk %}">Delete project</a>
-                {% endif %}
-                <a href="{% url 'classroom-student-details' project.user.profile.pk project.project_topic.classroom.pk %}"><p>{{ project.user.first_name }} {{ project.user.last_name }}</p></a>
-                <br>
-                <legend class='border-bottom mb-4'>Project description</legend>
-                <p id="classroom-project-description">{{ project.description }}</p>
-                <br>
-                {% if project.project_link %}
-                    <p id="classroom-project-link"><a href="{{ project.project_link }}" target="_blank">Click here to see my project!</a></p>
+    <div id="project-project-media-container">
+        <div id="project-section">
+            <div class="card" id="project-details-card">
+                <div class="card-body" id="project-details-card-body">
+                    <h2>{{ project.title }}</h2>
+                    {% if user == project.user %}
+                        <a href="{% url 'classroom-update-project' project.pk %}">Edit text</a> |
+                        <a href="{% url 'classroom-add-link' project.pk %}">Edit link</a> | 
+                        <a href ="{% url 'classroom-add-video' project.pk %}">Add video</a> |
+                        <a href ="{% url 'classroom-add-project-photo' project.pk %}">Add photo</a> |
+                        <a href="{% url 'classroom-confirm-delete-project' project.pk %}">Delete project</a>
+                    {% endif %}
+                    <a href="{% url 'classroom-student-details' project.user.profile.pk project.project_topic.classroom.pk %}"><p>{{ project.user.first_name }} {{ project.user.last_name }}</p></a>
                     <br>
-                {% endif %}
-                <legend class='border-bottom mb-4'>Project media</legend>
-                <div id="project-media-container">
-                    {% for project_video in project.project_videos.all %}
-                        <div class="project-photo-video-container">
-                            {% video project_video.video '200x200' %}
-                            {% if user == project.user %}
-                                <small><a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a></small>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                    {% for project_photo in project.project_photos.all %}
-                        <div class="project-photo-video-container">
-                            <a href="{{ project_photo.image.url }}" target="_blank">
-                                <image class="project-photo" src="{{ project_photo.image.url }}"></image>
-                            </a>
-                            {% if user == project.user %}
-                                <small><a href="{% url 'classroom-confirm-delete-project-photo' project.pk project_photo.pk %}">Delete photo</a></small>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
+                    <legend class='border-bottom mb-4'>Project description</legend>
+                    <p id="classroom-project-description">{{ project.description }}</p>
+                    <br>
+                    {% if project.project_link %}
+                        <p id="classroom-project-link"><a href="{{ project.project_link }}" target="_blank">Click here to see my project!</a></p>
+                        <br>
+                    {% endif %}
                 </div>
+            </div>
+        </div>
+        <div id="project-media-section">
+            <div id="project-media-container">
+                {% for project_video in project.project_videos.all %}
+                    <div class="project-photo-video-container">
+                        {% video project_video.video '300x300' %}
+                        {% if user == project.user %}
+                            <small><a href="{% url 'classroom-confirm-delete-video' project.pk project_video.pk %}">Delete video</a></small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                {% for project_photo in project.project_photos.all %}
+                    <div class="project-photo-video-container">
+                        <a href="{{ project_photo.image.url }}" target="_blank">
+                            <image class="project-photo" src="{{ project_photo.image.url }}"></image>
+                        </a>
+                        {% if user == project.user %}
+                            <small><a href="{% url 'classroom-confirm-delete-project-photo' project.pk project_photo.pk %}">Delete photo</a></small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

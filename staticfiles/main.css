@@ -274,6 +274,11 @@ body{
   gap:50px;
 }
 
+#project-project-media-container{
+  display:flex;
+  gap:20px;
+}
+
 #project-section{
   width:800px;
 }
@@ -311,8 +316,8 @@ body{
 }
 
 .project-photo{
-  height:200px;
-  width:200px;
+  height:300px;
+  width:300px;
 }
 
 #comment-form{
