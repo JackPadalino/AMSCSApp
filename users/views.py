@@ -143,3 +143,7 @@ def NotificationsListView(request):
         'helpful_notifications':helpful_notifications
     }
     return render(request,'users/users-notifications.html',context)
+
+@login_required
+def MyCodeEditorView(request):
+    return render(request,'users/users-my-code-editor.html')
