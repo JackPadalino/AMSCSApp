@@ -43,11 +43,11 @@
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.username }}</a>
                         {% endif %}
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'users-my-profile' %}">My profile</a></li>
-                            <li><a class="dropdown-item" href="{% url 'users-my-classes' %}">My classes</a></li>
-                            <li><a class="dropdown-item" href="{% url 'users-my-projects' %}">My projects</a></li>
-                            <li><a class="dropdown-item" href="{% url 'users-my-code-editor' %}">My code editor</a></li>
-                            <li><a class="dropdown-item" href="{% url 'users-my-notifications' %}">My notifications</a></li>
+                            <li><a class="dropdown-item" href="{% url 'users-my-profile' %}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'users-my-classes' %}">Classes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'users-my-projects' %}">Projects</a></li>
+                            <li><a class="dropdown-item" href="{% url 'users-my-notifications' %}">Notifications</a></li>
+                            <li><a class="dropdown-item" href="{% url 'users-my-code-editor' %}">Code editor</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{% url 'users-logout' %}">Logout</a></li>
                         </ul>
