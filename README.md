@@ -1,16 +1,17 @@
-#### App for Computer Science classes 2022-2023 and beyond
-- Students can post projects, videos, photos
-- Forums allow students to ask questions and mark each other's solutions as 'helpful'
+# AMS CS App
+Django application that allows for better student collaboration and classroom communication
 
-#### Next steps:
-- Complete 'My activity' page to show a user all their posts and comments
-- Need to delete all unused profile pictures from AWS S3 buckets - consider separating profile and
-  creating a 'profile pics' model - this way you can associate pics with users, and delete all
-  unused photos from db and AWS
+## Created With
+
+This application was created using the following Languages, Technologies, and Libraries:
+
+- Python
+- Django
+- HTML
+- CSS
+- Heroku
+
+## Ongoing work:
 - Add the ability to respond to comments (comment on comments!)
-- Update permissions for superusers - should be able to post and ask questions without
-  joining a class
-- Removed student access if not currently enrolled in class - Do not remove projects!
-
-#### Resources
-- https://stackoverflow.com/questions/3140779/how-to-delete-files-from-amazon-s3-bucket
+- Add 'guest' login
+-  Need to remove student access if not currently enrolled in class - Do not remove projects!
