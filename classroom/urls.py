@@ -36,6 +36,8 @@ from .views import (
     ClassForumsListView
     )
 
+from . import api
+
 urlpatterns = [
     # classroom urls
     path('find-classes/',SchoolYearListView.as_view(),name='classroom-findclasses'),
@@ -69,5 +71,12 @@ urlpatterns = [
     path('delete-project-comment-notification/<int:notification_pk>/',ProjectCommentNotificationsDeleteView,name='classroom-project-comment-notification-delete'),
     
     # forum urls
-    path('class-forums-list/<int:pk>/',ClassForumsListView,name='classroom-forums-list')
+    path('class-forums-list/<int:pk>/',ClassForumsListView,name='classroom-forums-list'),
+
+    # api urls
+    path("api/schoolyears", api.SchoolyearAPIView.as_view(), name="api-schoolyears"),
+    path("api/classrooms", api.ClassroomAPIView.as_view(), name="api-classrooms"),
+    path("api/projects", api.AllProjectsAPIView.as_view(), name="api-all-projects"),
+    path("api/projects/<int:pk>", api.SingleProjectAPIView.as_view(), name="api-single-project"),
+    path("api/projecttopics", api.ProjectTopicAPIView.as_view(), name="api-project-topics"),
 ]
